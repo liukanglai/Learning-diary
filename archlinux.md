@@ -260,10 +260,26 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 - wegt curl ntfs-3g exfat-utils p7zip unzip zip unrar
 - deepin-wine-qq(tim  wechat)
 - baidunetdisk
+- qv2ray
 - electron-ssr
 - tlp - 电池
 - chromium  (Chromium 的用户资料在~/.config/chromium/Default)
+- ranger
+- flameshot
+- cheese
+- kdenlive
+- woeusb
+- yakuake
+- vlc
+- gwenview
+- gimp
 - ark 
+- qt-creator
+- ctags
+- kdevelop
+- electron
+- cmake
+-
 
 > 办公软件WPS安装软件和缺失字体：
 
@@ -306,8 +322,6 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 - ncmdump-go 网易云音乐的 .ncm 格式转换工具
 - AppImageLauncher   .appimage文件的启动器 
 
-- ctags
-- qtcreater
 
 ## 代理
 
@@ -364,6 +378,7 @@ sudo pacman -U <package-name>
 - 窗口管理-任务切换器-主窗口可视化切换
 - 安装lattw-dock
   >布局/
+- 终端,字体
   
 
 ___
