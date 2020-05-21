@@ -27,3 +27,18 @@
 
 - git clone http
 - git pull : 下载更新 
+
+
+
+# github
+
+## search
+
+- in:name ...
+- in:readme ...
+- in:description
+- stars:>...
+- forks:>...
+- language:...
+- pushed:>2020-09-
+-
