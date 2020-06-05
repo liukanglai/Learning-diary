@@ -289,8 +289,8 @@ YAMLException: end of the stream or a document separator is expected at line x, 
 > jia
 
 - jgla
-    
+
     - jgla
-      
+ 
       - jal
 

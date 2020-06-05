@@ -200,9 +200,10 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 ## 输入法：安装fcitx
  
  - kcm-fcitx
-- fcitx-sunpinyin (rime...)
-- fcitx-im (各环境下使用)
+- fcitx-sunpinyin (rime...) fcitx-cloudpinyin fcitx-sogoupinyin
+- fcitx-qt5
 - fcitx-configtool(配置)
+- ?fcitx-im (各环境下使用)
 - For vim: vim-fcitx (set ttimeoutlen=100)
 - vim /etc/profile
  
