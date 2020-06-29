@@ -205,7 +205,7 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - fcitx-configtool(配置)
 - ?fcitx-im (各环境下使用)
 - For vim: vim-fcitx (set ttimeoutlen=100)
-- vim /etc/profile
+- vim /eCtc/profile
  
 > 输入:
 
