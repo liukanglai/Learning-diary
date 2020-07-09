@@ -512,6 +512,8 @@ set ttimeoutlen=100
 - github  vim-plug
 - curl
 
+`curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
 	call plug#begin('~/.vim/plugged')
 
 	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)

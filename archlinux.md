@@ -125,7 +125,7 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 
 ## 安装启动加载器
 
-- pacman -S efibootmgr  grub os-probe intel-ucode ntfs-3g
+- pacman -S efibootmgr  grub os-prober intel-ucode ntfs-3g
 - grub-install -–target=x86_64-efi -–efi-directory=/boot –-bootloader-id=grub 
 - 生成:grub-mkconfig -o /boot/grub/grub.cfg
  
@@ -166,7 +166,7 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 
 > Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
-- 安装archlinuxcn-keying
+- 安装archlinuxcn-keyring
 - pacman -Syu
 
 ## 桌面
@@ -235,6 +235,7 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - makepkg -si
 - 源：
 `yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+https://aur.archlinux.org
 查看：yay -P -g(位于 ~/.config/yay/config.json) 
 `
 yay -Syu
