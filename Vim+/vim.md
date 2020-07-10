@@ -607,10 +607,12 @@ call plug#end()
 ```
 
 - YouCompleteMe
-  >:echo has('python') || has('python3') if return 1,show right
-  >下载clang:
+  >vim中输入:echo has('python') || has('python3')   - if return 1,show right
+  > 
+  >下载clang  cmake:
   >>wget http://releases.llvm.org/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
   >cd .vim/plugged/YouCompleteMe
+  > 
   >sudo python3 install.py --clangd-completer
 
 

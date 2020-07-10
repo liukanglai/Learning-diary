@@ -16,9 +16,12 @@
 
 * ip link –看网卡  `enp开头有线网卡 wlp无线网卡` 
 
-> 看有无网: 命令 ping www.baidu.com 后显 ….ms 即有网
+    > 看有无网: 命令 ping www.baidu.com 后显 ….ms 即有网
+    >     
+    > enp开头有线网卡 wlp无线网卡 
+    
 
-> enp开头有线网卡 wlp无线网卡 (手机usb共享网???)
+(手机usb共享网,连接电脑)
 
 ### 无线
 
@@ -27,12 +30,11 @@
 - 扫描：iwlist .. scan | grep ESSID
 - 连接：
 
-> wpa_passphrase 网络名 密码 > internet.conf
-
-> wpa_supplicant -c internet.conf -i 设备名 &
+    > wpa_passphrase 网络名 密码 > internet.conf
+    > 
+    > wpa_supplicant -c internet.conf -i 设备名 &
 
 - 分配ip地址：dhcpcd &
-- wifi-menu 此命令垃圾…
 
 - 如需web登录(Captive Portal): elinks http…
 
@@ -44,42 +46,55 @@
 ## 配置
 
 - 时间同步: timedatectl set-ntp true
->手动: timectl set-time “year-month-date h-minute-s”
+
+    > 手动: timectl set-time “year-month-date h-minute-s”
 
 - 检查:timedatectl status
 
 ## 安盘
 
 - 查看硬盘: lsblk或fdisk -l
->/dev/… nvme0n(高级)或sda… (新盘不同)
+
+    > /dev/… nvme0n(高级)或sda… (新盘不同)
 
 - 分盘: cfdisk 进gpt 分后yes
+
 格式|大小|目录|格式
 ----|----|----|----
 fat32|300M|EFI|EFI system
 ext4| |/|linux filesystem
- | |swap|linux swap
+swap | |linux swap
 
 - 格式化: 
-> /：mkfs.ext4 /dev/..
 
-> EFI: mkfs.vfat或mkfs.fat -F32
-
-> swap: mkswap -f /…
+    > /：mkfs.ext4 /dev/..
+    >
+    > EFI: mkfs.vfat或mkfs.fat -F32
+    > 
+    > swap: mkswap -f /…
 
 - 打开swap：swapon /…
  
 - 挂载:
  
-> /: mount /dev/..  /mnt
-
-> mkdir /mnt/boot
-
-> EFI: mount /dev/..  /mnt/boot
+    > /: mount /dev/..  /mnt
+    > 
+    > mkdir /mnt/boot
+    > 
+    > EFI: mount /dev/..  /mnt/boot
  
 ## 软件源
 
 - vim /etc/pacman.d/mirrorlist 把China移到最前
+
+```
+ 清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+## 163
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+## aliyun
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+```
  
 - 刷新: pacman -syy (-syu)
  
@@ -90,7 +105,8 @@ ext4| |/|linux filesystem
 ## 进入chroot
 
 - 生成fstab???
->genfstab -L /mnt >> /mnt/etc/fstab
+ 
+    > genfstab -L /mnt >> /mnt/etc/fstab
  
 - 检查:cat /mnt/etc/fstab
  
@@ -99,24 +115,22 @@ ext4| |/|linux filesystem
 ## 基本设置
 
 - 时区: In -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-- 设置时间标准UTC,并调整时间漂移? hwclock –systohc
+- 设置时间标准UTC,并调整时间漂移 : hwclock –-systohc
 - 本地化: 
 
-> vim /etc/locale.gen (去#号 en_US.UTF-8 UTF-8   zh_CN.UTF-8 UTF-8    zh_HK.UTF-8 UTF-8   zh_TW.UTF-8 UTF-8 )
-
-> locale-gen(生成)
-
-> vim /etc/locale.conf
- 
-> LANG=en_US.UTF-8
- 
+    > vim /etc/locale.gen (去#号 en_US.UTF-8 UTF-8   zh_CN.UTF-8 UTF-8    zh_HK.UTF-8 UTF-8   zh_TW.UTF-8 UTF-8 )
+    >     
+    > locale-gen(生成)
+    >  
+    > vim /etc/locale.conf 输入： LANG=en_US.UTF-8
+     
 - vim /etc/hostname 编辑主机名称hostname
 - vim /etc/hosts
-`- 文末加
+ 
+- 文末加
 - 127.0.0.1 localhost
 - ::1 localhost
 - 127.0.1.1 hostname.localdomain hostname
-` 
 - 设密码:passwd
 
 ## 网络
@@ -138,6 +152,9 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
  
 ##
  
+有线： dhcpcd
+ 
+- wifi-menu 即可
 - systemctl enable dhcpcd
 - dhcpcd &
 `连网可将iwlist换为iw` 
@@ -147,7 +164,9 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - pacman -S sudo
 - useradd -m -g users -G wheel -s /bin/bash …(name)
 - passwd ..(name)
-- 修改sudo权限:visudo(vim /etc/sudoers)
+- 修改sudo权限:vim /etc/sudoers
+
+    > ln -s /usr/bin/vim /usr/bin/vi  visudo
 
 `Uncomment to allow members of group wheel to execute any command
  去%wheel前#`
@@ -155,19 +174,76 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 ## 源 
 
 - vim /etc/pacman.conf 文末：
-
-> [multilib]去#
-
-> /#[custom]变：
-
-> [archlinuxcn]
-
-> SigLevel = Optional TrustAll
-
-> Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-
+    
+    > [multilib]去#
+    
+    > /#[custom]变：
+    
+    > [archlinuxcn]
+- 只能加一个
+    
+```
+[archlinuxcn]
+# The Chinese Arch Linux communities packages.
+# SigLevel = Optional TrustedOnly
+SigLevel = Optional TrustAll
+# 官方源
+Server   = http://repo.archlinuxcn.org/$arch
+# 163源
+Server = http://mirrors.163.com/archlinux-cn/$arch
+# 清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+    
 - 安装archlinuxcn-keyring
 - pacman -Syu
+
+## 字体:
+ 
+- 思源黑体：adobe-source-han-sans-otc-fonts
+- 本地化:  vim /etc/locale.gen `去#号 zh_CN.UTF-8 UTF-8 `
+- locale-gen(生成)
+ 
+## 目录:
+
+- 安装xdg-user-dirs
+- 执行xdg-user-dirs-update
+ 
+## 输入法：安装fcitx
+ 
+- kcm-fcitx
+
+1. fcitx+fcitx-im+fcitx-sunpinyin
+2. 
+
+- fcitx-sunpinyin (rime...) fcitx-cloudpinyin fcitx-sogoupinyin
+- fcitx-qt5
+- fcitx-configtool(配置)
+- ?fcitx-im (各环境下使用)
+- For vim: vim-fcitx (set ttimeoutlen=100)
+
+- vim /etc/profile
+ 
+> 开头输入:
+
+- export XMODIFIERS="@im=fcitx"
+- export GTK_IM_MODULE="fcitx"
+- export QT_IM_MODULE="fcitx" 
+
+
+## 显卡
+
+- 查看：lspci | grep VGA
+- 英特尔：xf86-video-intel
+- amd: xf86-video-ati
+- 英伟达：nvidia nvidia-settings（非必要不装）
+
+ [更多](https://wiki.archlinux.org/index.php/Xorg#Driver_installation) 
+
+## 声卡
+
+- alsa-utils
+
 
 ## 桌面
 
@@ -186,46 +262,6 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - systemctl start sddm
  
  
-## 字体:
- 
-- 思源黑体：adobe-source-han-sans-otc-fonts
-- 本地化:  vim /etc/locale.gen `去#号 zh_CN.UTF-8 UTF-8 `
-- locale-gen(生成)
- 
-## 目录:
-
-- 安装xdg-user-dirs
-- 执行xdg-user-dirs-update
- 
-## 输入法：安装fcitx
- 
- - kcm-fcitx
-- fcitx-sunpinyin (rime...) fcitx-cloudpinyin fcitx-sogoupinyin
-- fcitx-qt5
-- fcitx-configtool(配置)
-- ?fcitx-im (各环境下使用)
-- For vim: vim-fcitx (set ttimeoutlen=100)
-- vim /eCtc/profile
- 
-> 输入:
-
-- export XMODIFIERS="@im=fcitx"
-- export GTK_IM_MODULE="fcitx"
-- export QT_IM_MODULE="fcitx" 
-
-
-## 显卡
-
-- 查看：lspci | grep VGA
-- 英特尔：xf86-video-intel
-- 英伟达：nvidia nvidia-settings
-
- [更多](https://wiki.archlinux.org/index.php/Xorg#Driver_installation) 
-
-## 声卡
-
-- alsa-utils
-
 ## git 
 
 ## yay
@@ -233,25 +269,30 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - git clone https://aur.archlinux.org/yay.git
 - cd yay
 - makepkg -si
-- 源：
-`yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
-https://aur.archlinux.org
-查看：yay -P -g(位于 ~/.config/yay/config.json) 
-`
+- 源：yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save (https://aur.archlinux.org)
+
+- 查看：yay -P -g(位于 ~/.config/yay/config.json) 
+
 yay -Syu
 
 ## 触控板 
 
 - yay -S kcm-pointing-devices-git
+- sudo pacman -S xf86-input-libinput
+- sudo pacman -S xf86-input-synaptics  #触摸板驱动#
  
 ## 蓝牙耳机
 
 - bluez bluez-utils bluez-firmware pulseaudio-bluetooth pavucontrol pulseaudio-alsa
-`bluez软件包提供蓝牙协议栈
+ 
+``` 
+bluez软件包提供蓝牙协议栈
 bluez-utils软件包提供bluetoothctl工具
 pulseaudio-bluetooth则为bluez提供了PulseAudio音频服务,若没有安装则蓝牙设备在配对完成后,连接会失败,提示
 pavucontrol则提供了pulseaudio的图形化控制界面
-pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用alsamixer来管理蓝牙音频`
+pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用alsamixer来管理蓝牙音频
+```
+
 - systemctl enable bluetooth
 - systemctl start bluetooth
 - pulseaudio -k                   # 确保没有pulseaudio启动
@@ -259,30 +300,16 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 
 ## 软件
  
-- wegt curl ntfs-3g exfat-utils p7zip unzip zip unrar
-- deepin-wine-qq(tim  wechat)
-- baidunetdisk
-- qv2ray
-- electron-ssr
-- tlp - 电池
-- chromium  (Chromium 的用户资料在~/.config/chromium/Default)
-- ranger
-- flameshot
-- cheese
-- kdenlive
-- woeusb
-- yakuake
-- vlc
-- gwenview
-- gimp
-- ark 
-- qt-creator
-- ctags
-- kdevelop
-- electron
-- cmake
--
+- wget curl  exfat-utils p7zip unzip zip unrar
 
+- install deepin-wine firstly.
+
+    > deepin-wine-qq
+    > 
+    > deepin-wine-wechat
+    > 
+    > deepin-wine-tim
+ 
 > 办公软件WPS安装软件和缺失字体：
 
 > sudo pacman -S wps-office
@@ -295,13 +322,28 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 
 > 然后右上角切换
 
+   
+- baidunetdisk-bin (yay)
+
+- tlp - 电池
+ 
+- chromium  (Chromium 的用户资料在~/.config/chromium/Default)
+
+- qtcreator  ark cmake ctags electron
+
+- flameshot  cheese  vlc  gwenview  gimp
+ 
+- yakuake  ranger
+- ark
+- woeusb
+ 
+- qv2ray
+- electron-ssr
+
+```
 - openssh 远程连接工具
-- vlc 
-- cheese 
 - deepin-screenshot  Flameshot 现代、快捷、轻便的截图工具
 - SimpleScreenRecorder 轻量的录屏软件
-- deadbeef 终极音频播放软件
-- gimp 强大的图片编辑工具
 - kdenlive shotcut 强大的视频剪辑软件
 - netease-cloud-music 网易云音乐
 - sublime-text-dev 代码编辑器
@@ -323,7 +365,16 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 - baidupcs-go-git 百度网盘下载工具
 - ncmdump-go 网易云音乐的 .ncm 格式转换工具
 - AppImageLauncher   .appimage文件的启动器 
+```
 
+## 系统时间与Windows兼容
+
+```
+sudo pacman -S ntpdate
+sudo ntpdate time.windows.com
+sudo hwclock --localtime --systohc
+
+```
 
 ## 代理
 
@@ -357,8 +408,6 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 - cp /usr/share/oh-my-zsh/zshrc ~/.zshrc
  
 ## vim
-
-
 
 ## deb安装
 
