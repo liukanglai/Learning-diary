@@ -213,13 +213,11 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
  
 - kcm-fcitx
 
-1. fcitx+fcitx-im+fcitx-sunpinyin
+1. fcitx+fcitx-im+fcitx-sunpinyin(fcitx-qt5 fcitx-configtool)
 2. 
+    - sudo pacman -Rsn fcitx-im fcitx-configtool 
+    - fcitx-lilydjwg-git fcitx-sogoupinyin
 
-- fcitx-sunpinyin (rime...) fcitx-cloudpinyin fcitx-sogoupinyin
-- fcitx-qt5
-- fcitx-configtool(配置)
-- ?fcitx-im (各环境下使用)
 - For vim: vim-fcitx (set ttimeoutlen=100)
 
 - vim /etc/profile
@@ -406,6 +404,27 @@ sudo hwclock --localtime --systohc
 - sudo chsh -s /bin/zsh username
 - yay -S oh-my-zsh-git
 - cp /usr/share/oh-my-zsh/zshrc ~/.zshrc
+
+把代理服务器地址写入shell配置文件.bashrc或者.zshrc 直接在.bashrc或者.zshrc添加下面内容
+
+export http_proxy="http://localhost:port"
+export https_proxy="http://localhost:port"
+或者走socket5协议（ss,ssr）的话，代理端口是1080
+
+export http_proxy="socks5://127.0.0.1:1080"
+export https_proxy="socks5://127.0.0.1:1080"
+或者干脆直接设置ALL_PROXY
+
+export ALL_PROXY=socks5://127.0.0.1:1080
+最后在执行如下命令应用设置
+
+source ~/.bashrc
+或者通过设置alias简写来简化操作，每次要用的时候输入setproxy，不用了就unsetproxy。
+
+ alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" alias unsetproxy="unset ALL_PROXY"
+方法三:
+
+
  
 ## vim
 

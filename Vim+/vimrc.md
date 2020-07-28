@@ -1,12 +1,14 @@
-"""=>全局配置<="""
-"""""""""""""""""""""""""""""""""""
-"关闭vi兼容模式"
-set nocompatible
 
-"设置历史记录步数"
-set history=1000
+~/.vim/vimrc
+
+# 全局配置
+
+
+- 关闭vi兼容模式 set nocompatible (nocp)
+- 设置历史记录步数: set history=1000
 
 "开启相关插件"
+
 "侦测文件类型"
 filetype on
 "载入文件类型插件"
@@ -34,11 +36,13 @@ set report=0
 "被分割的窗口间显示空白，便于阅读"
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 
-"""""""""""""""""""""""""""""""""
-"""=>字体和颜色<="""
-"""""""""""""""""""""""""""""""""
+
+
+# 字体和颜色
+
 "自动开启语法高亮"
 syntax enable
+
 
 "设置字体"
 "set guifont=dejaVu\ Sans\ MONO\ 10
@@ -278,9 +282,118 @@ endfunc
 
 
 
+## 插件
+
+- github  vim-plug
+- curl
+
+`curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+	call plug#begin('~/.vim/plugged')
+
+	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)
+
+	call plug#end()
+- :PlugInstall 
+- 删除Plug并: PlugClean 
 
 
-Mine
+
+```
+Plug 'vim-airline/vim-airline'                                                   //        
+Plug 'connorholyday/vim-snazzy'                                                //主题 
+
+" File navigation
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+"注释
+NERD Commenter
+
+"模糊查找文件
+fzf
+"查找包含某特定行或单词的文件
+ack/ag
+
+
+" Taglist
+tagliat 
+Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }                        //右显示函数列表
+
+" Error checking
+Plug 'w0rp/ale'
+
+" Auto Complete
+Plug 'Valloric/YouCompleteMe'                                                  //language
+
+" Undo Tree
+Plug 'mbbill/undotree/'                                                        //浏览文件修改历史 
+
+" Other visual enhancement
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/vim-cursorword'
+
+" Git
+Plug 'rhysd/conflict-marker.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+
+" git (右行显示; ~已更改  +已添加  -已删除
+gitgutter
+
+
+" HTML, CSS, JavaScript, PHP, JSON, etc.
+Plug 'elzr/vim-json'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
+Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
+Plug 'mattn/emmet-vim'
+
+" Python
+Plug 'vim-scripts/indentpython.vim'
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+vim-markdown
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'vimwiki/vimwiki'
+
+" Bookmarks
+Plug 'kshenoy/vim-signature'
+
+" Other useful utilities
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/goyo.vim' " distraction free writing mode
+Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
+Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
+Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
+
+" Dependencies
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'kana/vim-textobj-user'
+Plug 'fadein/vim-FIGlet'
+
+
+call plug#end()
+
+```
+
+- YouCompleteMe
+  >vim中输入:echo has('python') || has('python3')   - if return 1,show right
+  > 
+  >下载clang  cmake:
+  >>wget http://releases.llvm.org/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
+  >cd .vim/plugged/YouCompleteMe
+  > 
+  >sudo python3 install.py --clangd-completer
+
+
+
+
+# Mine
 
 
 let mapleader=" "

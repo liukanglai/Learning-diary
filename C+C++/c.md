@@ -26,7 +26,7 @@
 
 
 
-- main()-递归...
+- main()-递归... /死循环
 - include: copy a text (.h) ""/\<\>
 - system : the later sentences will wait it
   >"command": to add start in front of command, you can run later sentences
@@ -38,3 +38,6 @@
 %d|
 
 - ShellExecute(0,"open","notepad",1,0,0); : 0隐藏打开,1 正常,3最大化,6最下化
+
+
+.c + .h -> .obj -> .exe
