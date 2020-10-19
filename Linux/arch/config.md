@@ -92,6 +92,7 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 - qtcreator  ark cmake ctags electron
 
 - flameshot  cheese  vlc  gwenview  gimp
+- okular
  
 - yakuake  ranger
 - ark
