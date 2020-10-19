@@ -1,6 +1,7 @@
 
 
-// this is a for 
+// this is a loop 
+
 #include<stdio.h>
 int main(void)
 {
