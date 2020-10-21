@@ -14,6 +14,4 @@
     - 人月神话
     - SCIP 深入理解计算机系统
     - discrete mathematics
-    
-    
     - IDE
