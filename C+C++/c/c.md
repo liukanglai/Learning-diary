@@ -59,4 +59,19 @@
 
 - ShellExecute(0,"open","notepad",1,0,0); : 0隐藏打开,1 正常,3最大化,6最下化
 
+# name
+
+- comments
+
+- declarations
+- Variables
+- Arithmetic Expressions
+- Symbolic Constants
+- loops
+- Arrays
+- Structures
+- Functions
+- Arguments
+- Scope: external Variables, automatic, static 
+
 

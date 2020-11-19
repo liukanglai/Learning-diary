@@ -43,7 +43,8 @@ yay -Syu
  
 ## 蓝牙耳机
 
-- bluez bluez-utils bluez-firmware pulseaudio-bluetooth pavucontrol pulseaudio-alsa
+- bluez bluez-utils  pulseaudio-bluetooth pavucontrol pulseaudio-alsa
+- bluedevil:kde
  
 ``` 
 bluez软件包提供蓝牙协议栈
@@ -52,6 +53,10 @@ pulseaudio-bluetooth则为bluez提供了PulseAudio音频服务,若没有安装�
 pavucontrol则提供了pulseaudio的图形化控制界面
 pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用alsamixer来管理蓝牙音频
 ```
+你只需要将 AutoEnable=true 添加在 /etc/bluetooth/main.conf 底部的 [Policy] 下面：
+/etc/bluetooth/main.conf
+[Policy]
+AutoEnable=true
 
 - systemctl enable bluetooth
 - systemctl start bluetooth

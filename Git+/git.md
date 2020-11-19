@@ -21,6 +21,13 @@
 - 差异比较
 - 下载
 
+# 工作区
+# 暂存区  
+
+- git add
+- 撤回：git checkout --filename
+ 
+# 仓库区
 
 ## Do
 

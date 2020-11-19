@@ -1,18 +1,18 @@
 # 参考资料
 
-cppreference(C/C++文档): https://zh.cppreference.com/
-StackOverflow(你遇到的问题别人都遇到过): https://stackoverflow.com/
-Google(遇事不决搜Google): https://www.google.com/
-提问的智慧: https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/R
-EADME-zh_CN.md
-Github(学会管理你的代码/文档/其他): https://github.com
-Baidu(上不去Google之前先学会用这个): https://www.baidu.com
-Wikipedia(百科全书): https://zh.wikipedia.org
+- cppreference(C/C++文档): https://zh.cppreference.com/
+- StackOverflow(你遇到的问题别人都遇到过): https://stackoverflow.com/
+- Google(遇事不决搜Google): https://www.google.com/
+- 提问的智慧: https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/R
+- EADME-zh_CN.md
+- Github(学会管理你的代码/文档/其他): https://github.com
+- Baidu(上不去Google之前先学会用这个): https://www.baidu.com
+- Wikipedia(百科全书): https://zh.wikipedia.org
 
 1. 计算机基础
     
     - frank视频
-    - Linux 
+    - Linux: arch
     - Vim
     - VPN+
     - IDE
@@ -26,16 +26,29 @@ Wikipedia(百科全书): https://zh.wikipedia.org
 3. language
 
     > gcc five minute(学会正确使用编译器): https://github.com/24OI/gcc_five_minute
+    >
+    > gdb: debugging with gdb  https://www.gnu.org/software/gdb/documentation/
+    
     - C: The C Programming Language
         > Pointers on C (1997) by Kenneth A·Reek
         > 
         > Expert C Programming: Deep C Secrets (1994) by Peter van der Linden
         > 
         > C Traps and Pitfalls (1989) by Andrew Koenig
+     
     - C++
         > The C++ Programming Language (4th, 2013) by Bjarne Stroustrup
+        >
+        > effective c++
+        >
+        > c++ Templates
+        >
+        > 
+     
     - Java
     - JavaScript高级程序设计
+    - java核心技术
+    - java编程思想！！！
     - Thinking in java(或On Java 8)
     - Java并发编程实践
     - 深入理解Java虚拟机
@@ -50,24 +63,29 @@ Wikipedia(百科全书): https://zh.wikipedia.org
     - 消息队列基本原理: https://github.com/dunwu/blog/blob/master/source/_posts/theory/mq.md
  
     - python
+     
         > Python or JavaScript or Go
         > 
         > Python编程:从入门到实践
+     
     - Go语言实战
      
 4. Linux
    
+   - linux：（mark sobell）
      Linux操作系统掌握 shell编程 脚本等等
-     编译/调试工具 Linux平台上 gcc 以及makefile（跟我一起写makefile）要会写 gdb调试工具
-     
+     编译/调试工具 Linux平台上 gcc 以及makefile（跟我一起写makefile）
      Linux：鸟哥的Linux私房菜 或 Linux就该这么学
-     编译和调试工具材料：英语好的看GNU官方关于GCC和GDB的官方文档。中文版《debugging with gdb》,跟我一起写makefile
-     
+     编译和调试工具材料：英语好的看GNU官方关于GCC和GDB的官方文档。
      Linux系统编程 ！
      多线程编程 网络编程（unix环境高级编程）（Linux高性能服务器编程）（posix多线程程序设计）
+   - APUE:unix环境高级编程
+   - UNP:unix network programming volumn 1 & 2
      
 
 5. 数据结构+算法
+
+- math: discretemathmetics concretemathmetics
 
     - SICP
     - first： 数据结构与算法分析
@@ -80,9 +98,9 @@ Wikipedia(百科全书): https://zh.wikipedia.org
     - 程序员宝典 剑指offer
 
     > ccf csp
-     
 
 6.  汇编语言
+
 
 7. Web
 
@@ -91,9 +109,7 @@ Wikipedia(百科全书): https://zh.wikipedia.org
     - jQuery权威指南
     - Node.js开发指南
 
-
 8. 数字逻辑
-
 
     
 9. 数据库
@@ -109,23 +125,21 @@ Wikipedia(百科全书): https://zh.wikipedia.org
  
     - Redis使用手册
 
-
 11. 组成原理
 
-    - 
-    
+    - systems programming and computer architecture (eth zurich)
+
 12. 编译原理
 
   
-    - 两周自制脚本语言
     - 编译原理
      
 13. 操作系统 
    
-  5 操作系统 进程和线程 并发 和锁 内存分布调度等等 （深入理解操作系统）
     - 深入理解计算机系统
     - Linux内核设计的艺术:图解Linux操作系统架构设计与实现原理
     - 操作系统概念
+    - 操作系统真相还原
     - MIT 6.828
    
    
@@ -163,6 +177,10 @@ Wikipedia(百科全书): https://zh.wikipedia.org
     软件工程
     人月神话
  
+18. AI 
+ 
+ 
+优秀的开源项目：SGI STL, muduo, libgo, libco 
  
 阿里实习:
 中间件学习:
@@ -174,3 +192,17 @@ Tair
 TDDL
 不在阿里实习的:
 看看各大厂的最佳实践分享:-)
+
+# Logic
+
+- 哥德尔不完备定律
+- A Mathematical Introduction to Logic 2nd Edition by Herbert B. Enderton
+
+
+# Math
+
+- 几何原本
+
+# physics 
+
+- 自然哲学
