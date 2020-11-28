@@ -87,7 +87,6 @@ AutoEnable=true
 
 > 然后右上角切换
 
-   
 - baidunetdisk-bin (yay)
 
 - tlp - 电池
@@ -145,6 +144,9 @@ sudo hwclock --localtime --systohc
 ## 代理
 
 - qv2ray出错，可删除再装，（用pacman装，用yay装，）
+- clashy
+- wine/crossover
+- darling
 
 ## Terminal
 
@@ -176,7 +178,7 @@ export ALL_PROXY=socks5://127.0.0.1:1080
 - yay -S debtap
 - 也应该安装bash， binutils ，pkgfile 和 fakeroot 依赖包。
 - 创建/更新 pkgfile 和 debtap 数据库。
-- sudo debtap -u ..
+"sudo debtap -u ..
 
 转换deb包
 debtap ***.deb

@@ -1,8 +1,13 @@
 #
 
-## 代理
+# 代理
 
-#### 1.
+- qv2ray 
+- clashy
+- crossover:
+- darling:
+
+1.
 
 - v2ray
 - yay -S v2ray
@@ -11,13 +16,13 @@
 - systemctl start v2ray.service
 
 
-#### 2. 下载 -v2rayLui-v.zip
+2. 下载 -v2rayLui-v.zip
 
 - 解压
 - 终端进入文件,sudo ./install.sh
 - ./v2rayLui
  
-#### 3. docker
+3. docker
 
 - docker search –filter=stars=5 v2ray
 - docker pull v2ray/offic
