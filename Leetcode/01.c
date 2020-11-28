@@ -1,3 +1,4 @@
+// 20/11/19 Thursday
 // move all 0 to the end of the array, other values' order can't be changed.
 //
 
@@ -17,6 +18,7 @@ void moveZeroes(int* nums, int numsSize)
     
     while(j < numsSize){
         if(!nums[i]){
+
             while(j < numsSize){
                 if(nums[++j]){   // judge if j >>>>>>
                     swap(nums + i,nums + j);
@@ -26,7 +28,6 @@ void moveZeroes(int* nums, int numsSize)
         } 
         i++;
     }
-
 }
 
 int main(void)
@@ -39,6 +40,7 @@ int main(void)
     return 0;
 }
 
+/*
 // wrong [1]
 //
 void moveZeroes(int* nums, int numsSize){
@@ -80,3 +82,4 @@ void moveZeroes(int* nums, int numsSize){
     }
 }
 
+*/

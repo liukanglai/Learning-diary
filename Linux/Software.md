@@ -35,7 +35,22 @@ $ pip list       //查看当前的已安装python模块
 - update:sudo pip3 install --upgrade pip
 
  
-## vim
+# vim
+
+# brew
+
+
+- yay -S brew-git//nb
+or:
+- git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+- git clone https://github.com/Linuxbrew/homebrew-core ~/.linuxbrew/Library/Taps/homebrew
+-
+- zsh_profile
+配置bash_profile
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+source bash_profile
 
 # backup
 
