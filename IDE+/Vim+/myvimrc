@@ -29,6 +29,8 @@ set tabstop=2
 set shiftwidth=4
 set softtabstop=2
 set laststatus=2
+
+" status line
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -73,7 +75,9 @@ set scrolloff=5
 highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
 set hlsearch
 set incsearch
+"忽略大小写
 set ignorecase
+set wildignorecase
 
 "用浅色高亮显示当前行"
 "竖
@@ -115,6 +119,41 @@ if version >= 603
             set encoding=utf-8
 endif
 
+" <f5> 编译和运行C map <LEADER>r :call CompileRunGcc()<cr>
+map <LEADER>r :call CompileRunGcc()<cr>
+func! CompileRunGcc()
+exec "w"
+exec "!gcc % -o %<"
+exec "! ./%<"
+endfunc
+
+"< F5> 编译和运行C++
+map <f5> :call CompileRunGpp()<cr>
+func! CompileRunGpp()
+exec "w"
+exec "!g++ % -o %<"
+exec "! ./%<"
+endfunc
+
+" <f5> 运行python程序
+map <f5> :w<cr>:!python %<cr>
+
+" <f5> 运行shell程序
+map <f5> :call CompileRunSH()<cr>
+func! CompileRunSH()
+exec "w"
+exec "!chmod a+x %"
+exec "!./%"
+endfunc
+
+"<f9>  gdb调试
+map <LEADER>d :call Debug()<cr>
+func!  Debug()
+exec "w"
+exec "!gcc % -o %< -gstabs+<"
+exec ":Termdebug %<"
+endfunc
+"</cr></f9></f9></cr></f5></f5></cr></cr></f5></f5></cr></f5></cr></f5></f5>
 
 
 
@@ -152,11 +191,14 @@ Plug 'morhetz/gruvbox'
 " Plug 'preservim/nerdtree'
 
 " Taglist
-" Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }                    
+ Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }                    
+
+" 项目文件，跳转 
+"Plug 'ludovicchabant/vim-gutentags'
 
 
 " Error checking
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 " Plug 'scrooloose/syntastic'
 
 " Auto Complete
@@ -164,14 +206,18 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'raimondi/delimitmate'
 
 " debug
-Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector'
 
 " Undo Tree 修改历史
 Plug 'mbbill/undotree/'                                                        
 
 " Other visual enhancement
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'itchyny/vim-cursorword'
+
+" highlight
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Git
 " Plug 'rhysd/conflict-marker.vim'
@@ -185,7 +231,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 " 补全
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }  
 " 格式
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown' 
 "Plug 'vimwiki/vimwiki'
 
 
@@ -260,12 +306,12 @@ endif
 
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt = 0
+ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-z>'
-
 noremap <c-z> <NOP>
 
 let g:ycm_semantic_triggers =  {
@@ -282,5 +328,15 @@ let g:ycm_filetype_whitelist = {
 			\ }
 
 "vimspector
+
 "let g:vimspector_enable_mappings = 'HUMAN'
 "packadd! vimspector
+
+"debug
+packadd termdebug
+
+" colorscheme desert
+
+let g:indentLine_enabled = 1
+"let g:indentLine_char_list = ['┆']
+let g:indentLine_char_list = ['¦']
