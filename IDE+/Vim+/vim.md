@@ -60,8 +60,7 @@
     - :s/zempty/handsome/g  (行zempty替换成 handsome) (no g, replace next)
     - :%s/zempty/handsome/g  (全文)
     - :n1,n2s/zempty/handsome/g   (n1 到 n2行)
-    - :s/zempty/handsome  作用于当前行，从光标处开始查找替换，仅仅替换第一次匹配 zempty 的地方为handsome 。
-    - :%s/zempty/handsome  替换掉文件中所有行第一次出现 zempty 的地方为 handsome 。
+
     - i 表示大小写不敏感查找，I 表示大小写敏感：
     - :%s/zempty/handsome/i  替换掉所有行第一个出现 zempty (不区分大小写) 为 handsome 。
     - :%s/zempty/handsome/gi  替换掉所有行出现 zempty (不区分大小写) 为 handsome 

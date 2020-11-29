@@ -146,7 +146,7 @@ call plug#end()
   >>wget http://releases.llvm.org/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
   >cd .vim/plugged/YouCompleteMe
   > 
-  >sudo python3 install.py --clangd-completer
+  >sudo python3 install.py --clangd-completer (all)
 
         let g:ycm_min_num_identifier_candidate_chars = 2
         let g:ycm_semantic_triggers =  {

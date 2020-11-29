@@ -38,25 +38,7 @@ void creatTree(Tnode **p)  // here is **p for changing the p, if it is *p, it wi
     return ;
 }
 
-Tnode *T1 = NULL, *T2 = NULL;
 int Temcode[MaxSize];
-int L_T = 0; // have a problem again...................................
-
-void input2node(Tnode **T1, Tnode **T2)
-{
-    *T1 = (Tnode*)malloc(sizeof(Tnode));
-    *T2 = (Tnode*)malloc(sizeof(Tnode));
-    (*T1)->value = getchar();
-    getchar();
-    (*T2)->value = getchar(); // 67 is wrong
-    /* do this, it's right... why???
-    node1 = getchar();
-    getchar();
-    node2 = getchar();
-    (*T1)->value = node1;
-    (*T2)->value = node2;
-    */
-}
 
 void HuffmanCoding(Tnode **p, int *Temcode, int L_T)
 {
@@ -64,25 +46,56 @@ void HuffmanCoding(Tnode **p, int *Temcode, int L_T)
     if(*p == root){
         Temcode[L_T++] = 2;
     }
-    if((*p)->value == T1->value) // in there, (*p)->value become wrong, and T2 too
-    {
-        T1 = *p;
-    }
-    if((*p)->value == T2->value)
-    {
-        T2 = *p;
-    }
     //memcpy((*p)->HuffmanCode, Temcode, L_T*sizeof(int));
-    for(int i = 0; i < L_T; i++){
+    for(int i = 0; i <= L_T; i++){
         (*p)->HuffmanCode[i] = Temcode[i];
     }
     if((*p)->lnode != NULL){
         Temcode[L_T++] = 1; 
         HuffmanCoding(&((*p)->lnode), Temcode, L_T);
+        Temcode[L_T--] = -1; 
     }
     if((*p)->rnode != NULL){
-        Temcode[(L_T - 1)] = 0; 
+        Temcode[L_T++] = 0; 
         HuffmanCoding(&((*p)->rnode), Temcode, L_T);
+        Temcode[L_T--] = -1; 
+    }
+}
+
+int node1, node2;
+Tnode *T1, *T2;
+
+void input2node(Tnode **T1, Tnode **T2)
+{
+    *T1 = (Tnode*)malloc(sizeof(Tnode));
+    *T2 = (Tnode*)malloc(sizeof(Tnode));
+    node1 = getchar();
+    getchar();
+    node2 = getchar();
+    (*T1)->value = node1;
+    (*T2)->value = node2;
+}
+
+int flag = 0;
+
+void Find2node(Tnode **p, Tnode **T1, Tnode **T2)
+{
+    if((*p)->value == node1){
+        *T1 = *p;
+        flag++;
+    }
+    if((*p)->value == node2){
+        *T2 = *p;
+        flag++;
+    }
+    if(flag==2){
+        return;
+    }
+    if((*p)->lnode != NULL){
+        Find2node((&(*p)->lnode), T1, T2);
+    }
+    if((*p)->rnode != NULL){
+        Find2node((&(*p)->rnode), T1, T2);
     }
 }
 
@@ -102,17 +115,16 @@ void Findfather()
     }
     Tnode *p = root;
     for(int j = 1; j < i; j++){
-        if((T1->HuffmanCode)[i] == 1){
+        if((T1->HuffmanCode)[j] == 1){
             p = p->lnode;
         }
         else{
             p = p->rnode;
         }
     }
-    printf("%c", p->value);
+    printf("%c\n", p->value);
 }
 
-//
 void destroyTree(Tnode** p)
 {
     if((*p) == NULL) return;
@@ -122,17 +134,22 @@ void destroyTree(Tnode** p)
 }
 
 int main(){
+    int L_T = 0;
     printf("Input a BinaryTree with prefix(use '#'):");
     creatTree(&root);
-    getchar(); // enter???
-    printf("Input two node:");
-    input2node(&T1, &T2);  // int there, L_T is 0
-    for(int i = 0; i <= MaxSize; i++)
-    {
+    getchar(); // enter
+    for(int i = 0; i <= MaxSize; i++){
         Temcode[i] = -1;
-    } // but here, L_T is -1?????????????????????????
+    }
     HuffmanCoding(&root, Temcode, L_T);
-    Findfather();
+    do{
+        printf("Input two node(end with EOF(linux:ctr-d, win:ctr-z)):");
+        input2node(&T1, &T2);
+        Find2node(&root, &T1, &T2);
+        Findfather();
+        flag = 0;  // big bug!!!!!!
+    }while(getchar() != EOF);
     destroyTree(&root);
+    free(T1); free(T2);
     return 0;
 }

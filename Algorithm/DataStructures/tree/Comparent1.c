@@ -38,24 +38,20 @@ void creatTree(Tnode **p)  // here is **p for changing the p, if it is *p, it wi
     return ;
 }
 
+int node1, node2;
 Tnode *T1 = NULL, *T2 = NULL;
 int Temcode[MaxSize];
-int L_T = 0; // have a problem again...................................
+//int L_T = 0;
 
 void input2node(Tnode **T1, Tnode **T2)
 {
     *T1 = (Tnode*)malloc(sizeof(Tnode));
     *T2 = (Tnode*)malloc(sizeof(Tnode));
-    (*T1)->value = getchar();
-    getchar();
-    (*T2)->value = getchar(); // 67 is wrong
-    /* do this, it's right... why???
     node1 = getchar();
     getchar();
     node2 = getchar();
     (*T1)->value = node1;
     (*T2)->value = node2;
-    */
 }
 
 void HuffmanCoding(Tnode **p, int *Temcode, int L_T)
@@ -73,16 +69,18 @@ void HuffmanCoding(Tnode **p, int *Temcode, int L_T)
         T2 = *p;
     }
     //memcpy((*p)->HuffmanCode, Temcode, L_T*sizeof(int));
-    for(int i = 0; i < L_T; i++){
+    for(int i = 0; i <= L_T; i++){  // 1. i < L_T wrong!!!
         (*p)->HuffmanCode[i] = Temcode[i];
     }
-    if((*p)->lnode != NULL){
+    if((*p)->lnode != NULL){    // 4. when it is NULL!!!!!!!!!!!!!!!!!!!!!!!
         Temcode[L_T++] = 1; 
         HuffmanCoding(&((*p)->lnode), Temcode, L_T);
+        Temcode[L_T--] = -1;   // 2 & 3. only L_T--, no call it -1; the two should same!!!
     }
     if((*p)->rnode != NULL){
-        Temcode[(L_T - 1)] = 0; 
+        Temcode[L_T++] = 0; 
         HuffmanCoding(&((*p)->rnode), Temcode, L_T);
+        Temcode[L_T--] = -1;
     }
 }
 
@@ -102,7 +100,7 @@ void Findfather()
     }
     Tnode *p = root;
     for(int j = 1; j < i; j++){
-        if((T1->HuffmanCode)[i] == 1){
+        if((T1->HuffmanCode)[j] == 1){ // 5. at first i write i, not j
             p = p->lnode;
         }
         else{
@@ -122,15 +120,16 @@ void destroyTree(Tnode** p)
 }
 
 int main(){
+    int L_T = 0;
     printf("Input a BinaryTree with prefix(use '#'):");
     creatTree(&root);
     getchar(); // enter???
     printf("Input two node:");
-    input2node(&T1, &T2);  // int there, L_T is 0
+    input2node(&T1, &T2);
     for(int i = 0; i <= MaxSize; i++)
     {
         Temcode[i] = -1;
-    } // but here, L_T is -1?????????????????????????
+    }
     HuffmanCoding(&root, Temcode, L_T);
     Findfather();
     destroyTree(&root);

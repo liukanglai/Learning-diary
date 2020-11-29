@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//定义树节点的结构体
+// define a tree
 typedef struct Tnode
 {
     struct Tnode *lnode;
@@ -11,11 +11,18 @@ typedef struct Tnode
 
 Tnode* root=NULL;
 char ch;
+int n_input = 0;
 
-//创建二叉树
-void creatTree(Tnode **p) 
-{
-    ch = getchar();
+// build a binarytree
+void creatTree(Tnode **p)  // here is **p for changing the p, if it is *p, it will change the *p only, can't change the p!!!
+{ 
+    ch = getchar(); // there you can't judge whether the recursion should end, how to solve......
+    n_input++;
+    if(n_input > 100)
+    {
+        printf("Input is too long(>100)!");
+        exit(0);
+    }
     if(ch =='#'){
         *p = NULL;
         return ;
@@ -26,6 +33,8 @@ void creatTree(Tnode **p)
     creatTree(&((*p)->rnode));
     return ;
 }
+
+// define a queue, it's a node in it, 
 
 Tnode* queue[100];
 int Startqueue = 0;
@@ -41,7 +50,7 @@ Tnode* outqueue()
     return queue[Stopqueue++];
 }
 
-void displayTree(Tnode** p)
+void displayTree(Tnode** p)  // put the tree in layer order simply, inqueue father, outqueue son.
 {
     if(*p == NULL) return ;
 
@@ -55,7 +64,7 @@ void displayTree(Tnode** p)
     }
 }
 
-//销毁二叉树，回收分配的内存单元
+//
 void destroyTree(Tnode** p)
 {
     if((*p) == NULL) return;
@@ -69,7 +78,7 @@ int main(){
    creatTree(&root);
    displayTree(&root);
    destroyTree(&root);
-   getchar();
+   getchar(); // enter???
    return 0;
 }
 
