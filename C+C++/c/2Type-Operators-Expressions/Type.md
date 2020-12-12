@@ -1,13 +1,11 @@
-#
-
-变量名
-
 # 变量
 
 - 必须先声明后使用
 - 声明通常放在函数起始处，在任何可执行语句之前．
 
-    int a;(类型名＋变量表)
+        extern int a; declaration
+        int a;(类型名＋变量表) // this is a define, not a declaration...
+
 -
 
 

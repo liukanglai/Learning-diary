@@ -28,7 +28,8 @@ xdg-mime query default inode/directory
 xdg-mime default Thunar-folder-handler.desktop inode/director
 
 
-#
+# j
+
 方法一：修改 /etc/rc.d/rc.local 文件
 /etc/rc.d/rc.local 文件会在 Linux 系统各项服务都启动完毕之后再被运行。所以你想要自己的脚本在开机后被运行的话，可以将自己脚本路径加到该文件里。
 $ chmod +x /etc/rc.d/rc.local
@@ -37,6 +38,7 @@ $ chmod +x /etc/rc.d/rc.local
 $ vim auto_run_script.sh
 
 #!/bin/bash
+
 date >> /home/alvin/output.txt
 hostname >> /home/alvin/output.txt
 保存退出后，再给它赋予可执行权限：
