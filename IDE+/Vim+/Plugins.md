@@ -1,3 +1,12 @@
+# self
+
+- mkidr -p ~/.vim/pack/plugins/start
+- in vimrc: packloadall  silent! helptags ALL
+- git clone ... ~/.vim/pack/plugins/start/file
+- 
+
+# vim-plug
+
 - github  vim-plug
 - curl
 
@@ -7,16 +16,16 @@
         
         	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)
         	" 定义插件，默认用法，和 Vundle 的语法差不多
-Plug 'junegunn/vim-easy-align'
-Plug 'skywind3000/quickmenu.vim'
-
-" 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" 确定插件仓库中的分支或者 tag
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+        Plug 'junegunn/vim-easy-align'
+        Plug 'skywind3000/quickmenu.vim'
+        
+        " 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
+        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+        Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+        
+        " 确定插件仓库中的分支或者 tag
+        Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+        Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
         
         	call plug#end()
 
@@ -25,11 +34,11 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 # Plug 
 
-Plug 'vim-airline/vim-airline'                                                   //        
+Plug 'vim-airline/vim-airline'                                                   //
 Plug 'connorholyday/vim-snazzy'                                                //主题 
 
 " File navigation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "注释
@@ -40,6 +49,9 @@ fzf
 
 "查找包含某特定行或单词的文件
 ack/ag
+
+" 键映射
+- vim-unimpaired
 
 " Taglist
 tagliat 
@@ -249,4 +261,3 @@ add : filetype plugin on
 |AUTHORREF| = gk
 |EMAIL|     = subscribe@geekstuff
 |COMPANY|   = thegeekstuff.com
-

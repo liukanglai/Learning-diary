@@ -1,5 +1,13 @@
 ~/.vim/vimrc
 
+- " is comment 
+- :syntax on?
+
+
+# map
+
+- noremap <c-h> <c-w><c-h>
+
 # 全局配置
 
 
