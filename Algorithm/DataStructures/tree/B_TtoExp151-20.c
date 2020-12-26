@@ -13,6 +13,7 @@ void B_TtoExp(BTree *node) //the ()'s output
         printf("wrong!!!");
         return ; //空结点返回
     } 
+    //wrong!!! look to 7.c
     if(node->left){
         if(node != root) printf("(");
         B_TtoExp(node->left);

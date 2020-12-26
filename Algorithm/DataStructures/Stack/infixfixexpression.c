@@ -1,25 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  prefixexpression.c
- *
- *    Description:  calculate the value of the prefix expression, number >= 0, int, only have 
- *                  end with '#'
- *
- *    Pesudocode: 
- *
- *        Version:  1.0
- *        Created:  11/22/2020 01:55:39 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  liukanglai (), 
- *        Company:  
- *
- * =====================================================================================
- */
-
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<ctype.h>
@@ -30,7 +8,6 @@ int operant[MAX]; // record the result
 int Loperant = 0;
 
 int get(char * s){
-
     int i = 0;
     while((s[0] = getchar()) == ' ' || s[0] == '\t' || s[0] == '\n');
     if(!isdigit(s[0])){

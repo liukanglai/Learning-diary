@@ -1,9 +1,31 @@
 # self
 
-- mkidr -p ~/.vim/pack/plugins/start
-- in vimrc: packloadall  silent! helptags ALL
+- mkidr -p ~/.vim/pack/plugins/start 总是需要加载的插件
+- mkidr -p ~/.vim/pack/plugins/opt 手动加载的插件（use :packadd ..., to use）
+> command ! -nargs=* Ack :packadd ack.vim | Ack <f-args> (:Ack to use)
+> autcmd! filetype markdown packadd goyo.vim | Goyo (use in markdown)
+
+- in vimrc: packloadall " 加载   silent! helptags ALL “ 加载帮助文档，silent! 是为隐藏错误
 - git clone ... ~/.vim/pack/plugins/start/file
-- 
+
+## use git to manage plugins
+
+- cd ~/.vim
+- git init
+- git submodule add https://github.com/scroooloose/nerdtree.git
+pack/plugins/start/nerdtree
+- git commit -am "Add NERDTree plugin"
+
+update:
+- git submodule update --recursive
+- git commit -am "Update plugins"
+
+delete
+- git submodule deinit -f --pack/plugins/start/nerdtree
+- rm -rf .git/modules/pack/plugins/start/nerdtree
+- git rm -f pack/plugins/start/nerdtree
+
+# Pathogen
 
 # vim-plug
 
@@ -12,15 +34,13 @@
 
         `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+
         	call plug#begin('~/.vim/plugged')
         
         	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)
-        	" 定义插件，默认用法，和 Vundle 的语法差不多
-        Plug 'junegunn/vim-easy-align'
-        Plug 'skywind3000/quickmenu.vim'
         
-        " 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
-        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+         " 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
+        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " when use :NERDTreeToggle, the plug will start 
         Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
         
         " 确定插件仓库中的分支或者 tag
@@ -29,8 +49,23 @@
         
         	call plug#end()
 
-- :PlugInstall 
+- :PlugInstall :PlugUpdate, but to update vim-plug, you need :PlugUpgrade, then reboot vim
 - 删除Plug并: PlugClean 
+- use Plug 'junegunn/vim-plug' to look up :help vim-plug
+- use this: (to install vim-plug auto)
+
+        if empty(glob('~/.vim/autoload/plug.vim'))
+          silent ! `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
+
+
+# Vundle
+
+- be same to vim-plug
+- use :PluginSearch ... !!!you can find plugins, then put the cursor on it, push i, will try it, but not installed it, you need use plug '' to install it.
+- 
 
 # Plug 
 
@@ -48,7 +83,7 @@ NERD Commenter
 fzf
 
 "查找包含某特定行或单词的文件
-ack/ag
+ack
 
 " 键映射
 - vim-unimpaired
@@ -261,3 +296,16 @@ add : filetype plugin on
 |AUTHORREF| = gk
 |EMAIL|     = subscribe@geekstuff
 |COMPANY|   = thegeekstuff.com
+
+
+
+
+# analysis
+
+1. start time
+    - vim --startuptime startuptime.log 记录行为到文件中
+    - 第三列为启动时间。
+
+2. 特定行为的分析(ps: CtrlP)
+    - 从github下载python，vim仓库
+    - do :CtrlP

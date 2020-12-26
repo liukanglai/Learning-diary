@@ -35,6 +35,6 @@ int main(void)
     int L;
     scanf("%d", &L);
     int A[L], B[L];
-    M_Search(A, B, L);
+    printf("%d",M_Search(A, B, L));
     return 0;
 }

@@ -45,7 +45,6 @@ int DFS(int node)
         father[Tem->adjVex] = 0; // 当查找平行节点时，上一个father值需归0
         Tem = Tem->next;
     }
-    printf("%d ", node);
     return 0;
 }
 

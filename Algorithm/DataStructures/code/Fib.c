@@ -5,7 +5,8 @@
 #include<stdio.h>
 int main(void)
 {
-    int f,f1,f2,n;
+    int f, f1, f2, n;
+    f = f1 = f2 = n =0;
     scanf("%d",&n);
     for(int i=0;i<=n;i++){
         if(!i) f=f1=0;
@@ -16,7 +17,7 @@ int main(void)
             f2=f;
         }
     }
-    printf("%d",f);
+    printf("%d\n", f);
     return 0;
 }
 

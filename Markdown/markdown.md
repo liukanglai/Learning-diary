@@ -6,37 +6,181 @@
 \cdot \circ \ast \bigodot \bigotimes \leq 
  \geq \neq \approx \equiv \sum \prod \coprod
 
-集合运算
 
-&emptyset; emptyset
+## 数学符号（$\log$）
 
-&in; in
+1. 上下标
 
-&notin; notin
+- $a^b$ 上标 ^
+- $a_b$ 下标 _
 
-&subset; subset
+2. 分数
 
-&supset; supset
+\frac{ }{ }
 
-&subseteq; subseteq
+第一个{ }写分子，第二个{ }写分母。
 
-&supseteq; supseteq
+分数 3+8a5b+63+8a5b+6 $\frac{3+8a}{5b+6}$
 
-&bigcap; bigcap
+3. 累加
 
-&bigcup; bigcup
+\sum_{ }^{ }
 
-&bigvee; bigvee
+累加号的上标下标的前后顺序可以互换。
 
-&bigwedge; bigwedge
+名称 数学表达式 markdown公式
 
-&biguplus; biguplus
+求和号 ∑3xn∑3xn $\sum{3x^n}$
 
-&bigsqcup; bigsqcup
+带范围求和 ∑Nn=13xn∑n=1N3xn $\sum_{n=1}^N{3x^n}$
 
-对数运算
+4. 累乘
 
-\log \lg \ln
+\prod_{ }^{ }
+
+累加号的上标下标的前后顺序可以互换。
+
+名称 数学表达式 markdown公式
+
+求和号 ∏3xn∏3xn $\prod{3x^n}$
+
+带范围求乘 ∏Nn=13xn∏n=1N3xn $\prod_{n=1}^N{3x^n}$
+
+5. 开方
+
+\sqrt[ ]{ }
+
+[ ]中写的是开几次方，{ }中写的是需要开方的数值。
+
+名称 数学表达式 markdown公式
+
+开方号 100−−−√51005 $\sqrt[5]{100}$
+
+6. 积分
+
+\int_{ }^{ }
+
+名称 数学表达式 markdown公式
+
+积分 ∫51f(x)dx∫15f(x)dx $\int^5_1{f(x)}{\rm d}x$
+
+二重积分 ∬51f(x)dx∬15f(x)dx $\iint^5_1{f(x)}{\rm d}x$
+
+三重积分 ∭51f(x)dx∭15f(x)dx $\iiint^5_1{f(x)}{\rm d}x$
+
+正无穷、负无穷
+
+\infty
+
+名称 数学表达式 markdown公式
+
+正无穷 +∞+∞ $+\infty$
+
+负无穷 −∞−∞ $-\infty$
+
+极限
+
+名称 数学表达式 markdown公式
+
+左箭头 limn→+∞nlimn→+∞n $\lim_{n\rightarrow+\infty} n$
+
+关系运算符
+
+名称 数学表达式 markdown公式
+
+大于等于 ≥≥ $\geq$
+
+小于等于 ≤≤ $\leq$
+
+包含于 ⊂⊂ $\subset$
+
+包含 ⊃⊃ $\supset$
+
+属于 ∈∈ $\in$
+
+二元运算符
+
+名称 数学表达式 markdown公式
+
+加减 ±± $\pm$
+
+点乘 ⋅⋅ $\cdot$
+
+乘 ×× $\times$
+
+除 ÷÷ $\div$
+
+否定关系运算符
+
+
+不等于 ≠≠ $\not=$
+
+- 不小于 ≮≮ $\not<$
+
+不包含 ⊅⊅ $\not\supset$
+
+10. 对数运算符
+
+
+对数 loglog $\log$
+
+对数 log218log2⁡18 $\log_2{18}$
+
+对数 lnln $\ln$
+
+三角运算符
+
+名称 数学表达式 markdown公式
+
+垂直 ⊥⊥ $\bot$
+
+角 ∠∠ $\angle $
+
+30度角 30∘30∘ $30^\circ$
+
+正弦 sinsin $\sin$
+
+余弦 coscos $\cos$
+
+正切 tantan $\tan$
+
+左箭头 ←← $\leftarrow$
+
+右箭头 →→ $\rightarrow$
+
+长箭头 ⟶⟶ $\longrightarrow$
+
+上箭头 ↑↑ $\uparrow$
+
+下箭头 ↓↓ $\downarrow$
+
+# 集合运算
+
+emptyset; emptyset
+
+in;
+
+notin; notin
+
+subset; subset
+
+supset; supset
+
+subseteq; subseteq
+
+supseteq; supseteq
+
+bigcap; bigcap
+
+bigcup; bigcup
+
+bigvee; bigvee
+
+bigwedge; bigwedge
+
+biguplus; biguplus
+
+bigsqcup; bigsqcup
 
 三角运算
 

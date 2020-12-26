@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#define Maxsize 100
 
 typedef struct node{
     int data;
@@ -6,8 +8,12 @@ typedef struct node{
 }node;
 
 void sort(node *L){
+    if(!(L->next)){
+        printf("NULL!\n");
+        return ;
+    }
     //寻找中间结点, 双指针法
-    node *p = L, *q = L;
+    node *p = L->next, *q = L->next;
     while(q->next){
         q = q->next;
         if(q->next){
@@ -26,24 +32,46 @@ void sort(node *L){
         p->next = q;
         q=r;
     }
+
     q = p->next;
     r = p;  // record the front node of q;
-    p = L;
+    p = L->next;
+    /* wrong, 
     while(q){
         r->next = q->next;
         q->next = p->next;
         p->next = q;
         p = q->next;
-        q = r->next;
+        q = r->next; // r->next will not NULL, because p->next = q...
+    }
+    */
+    while(q){
+        r = q->next;
+        q->next = p->next;
+        p->next = q;
+        p = q->next;
+        q = r; 
     }
 }
 
 int main(void)
 {
-    node *head;
-
-    sort(head);
+    node *head = (node *)malloc(sizeof(node));
+    int n;
+    while(scanf("%d", &n) != EOF){
+        node a[n];
+        node *p = head;
+        for(int i = 0; i < n; i++){
+	          scanf("%d", &(a[i].data)); 
+            p->next = &a[i];
+            p = &a[i];
+        }
+        p->next = NULL;
+        sort(head);
+        for(int i = 0; i< n;i++){
+	          printf("%d ",head->next->data);
+	          head = head->next;
+        }
+    }
     return 0;
-
 }
-
