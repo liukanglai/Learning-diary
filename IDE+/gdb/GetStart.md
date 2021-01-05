@@ -37,3 +37,4 @@
 - run(now you can input)
 - n 2(do 2)
 - s 2(enter function)
+- u 行号
