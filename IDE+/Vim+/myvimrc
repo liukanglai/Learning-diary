@@ -3,7 +3,6 @@ let mapleader=" "
 map <LEADER>0  $
 map <LEADER>f  <C-f>
 map <LEADER>b  <C-b>
-map <LEADER>p  <C-p>
 map <LEADER>w  <C-w>
 noremap tn :NERDTree<CR>
 noremap tt :Tagbar<CR>
@@ -13,7 +12,11 @@ noremap tm :MarkdownPreview<CR>
 set nu
 syntax on
 exec "nohlsearch"
+" 折叠
 set nofoldenable
+set foldmethod=indent " use indent to fold
+" open a file, open all fold.
+autocmd BUfRead * normal zR 
 set smartcase
 set ci
 set sm
@@ -24,7 +27,7 @@ let &t_ut=''
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-set expandtab
+set expandtab " tab 展开为空格
 set tabstop=2
 set shiftwidth=4
 set softtabstop=2
@@ -119,6 +122,7 @@ if version >= 603
             set encoding=utf-8
 endif
 
+
 " <f5> 编译和运行C map <LEADER>r :call CompileRunGcc()<cr>
 map <LEADER>r :call CompileRunGcc()<cr>
 func! CompileRunGcc()
@@ -133,6 +137,7 @@ func! CompileRunGpp()
 exec "w"
 exec "!g++ % -o %<"
 exec "! ./%<"
+exec "! rm %<"
 endfunc
 
 " <f5> 运行python程序
@@ -150,8 +155,9 @@ endfunc
 map <LEADER>d :call Debug()<cr>
 func!  Debug()
 exec "w"
-exec "!gcc % -o %< -gstabs+<"
+exec "!gcc -g -o %< %"
 exec ":Termdebug %<"
+exec "! rm %<"
 endfunc
 "</cr></f9></f9></cr></f5></f5></cr></cr></f5></f5></cr></f5></cr></f5></f5>
 
@@ -205,6 +211,9 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'                                                 
 Plug 'raimondi/delimitmate'
 
+" assignment promot
+" Plug 'Shougo/echodoc.vim'
+
 " debug
 "Plug 'puremourning/vimspector'
 
@@ -227,11 +236,11 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for': ['markdown', 'vim-plug'] }
 " 补全
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }  
 " 格式
-Plug 'plasticboy/vim-markdown' 
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
 "Plug 'vimwiki/vimwiki'
 
 
@@ -340,3 +349,4 @@ packadd termdebug
 let g:indentLine_enabled = 1
 "let g:indentLine_char_list = ['┆']
 let g:indentLine_char_list = ['¦']
+
