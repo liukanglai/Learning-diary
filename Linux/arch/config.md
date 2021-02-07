@@ -65,7 +65,7 @@ AutoEnable=true
 
 ## 软件
  
-- wget curl  exfat-utils p7zip unzip zip unrar
+- wget curl  exfat-utils p7zip unzip zip unrar ranger
 
 - install deepin-wine firstly.
 
@@ -91,17 +91,20 @@ AutoEnable=true
 
 - tlp - 电池
  
-- chromium  (Chromium 的用户资料在~/.config/chromium/Default)
+- google-chrome/chromium  (Chromium 的用户资料在~/.config/chromium/Default)
 
 - qtcreator  ark cmake ctags electron
 
 - flameshot  cheese  vlc  gwenview  gimp
 - okular
+
  
 - yakuake  ranger
 - ark
 - woeusb
  
+- neofetch 
+
 - qv2ray
 - electron-ssr
 

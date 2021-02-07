@@ -1,13 +1,12 @@
 #include <stdio.h>
 
-typedef struct teacher_info   //输入时用 
+typedef struct teacher_info  
 {
 	int key;
 	int away;
 	int back;
 }Teacher;
  
-//大致思路：按照时间来找，Back如果出现匹配时间就循环查找，将下标移位，再看是否匹配，直到不匹配再继续，整个是while循环 
 int main()
 {
 	int i, j, keys_num, teachers_num;
@@ -109,3 +108,15 @@ int main()
 	
 	return 0;
 }
+
+/*
+5 7
+1 1 14
+3 3 12
+1 15 12
+2 7 20
+3 18 12
+4 21 19
+5 30 9
+*/
+

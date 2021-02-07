@@ -9,13 +9,16 @@ int main()
     int Ndisk; // 磁盘号
     for(int i = 0; i < l; i++){ // 读取l块磁盘的数据
         scanf("%d%*c", &Ndisk); // %*c, ingnored  the ' '.
-        int j = 0;
+        //int j = 0;
+        fgets(disks[Ndisk],8000,stdin); 
+        /*
         for( ; j < 8000; j++){
             if((disks[Ndisk][j] = getchar()) != '\n'){
                 break;
             }
         } // fgets(disks[Ndisk],8000,stdin); 网上有这个输入，我学的还不到家啊。。。
-        disks[Ndisk][j] = '\0';
+        */
+        //disks[Ndisk][j] = '\0';
         Sumblock = strlen(disks[Ndisk]) / 8; // 存储在一块磁盘上的块数，一块四个字节，32位，存8个字符？？？（这有点。） 还是看题目要求的输出吧。要是两块磁盘上的数据长度不一样怎么办？算了。。
     }
     scanf("%d", &m);
@@ -44,4 +47,3 @@ int main()
     }
     return 0;
 }
-

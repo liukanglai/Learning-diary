@@ -187,8 +187,15 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 ```
 [archlinuxcn]
 # The Chinese Arch Linux communities packages.
-# SigLevel = Optional TrustedOnly
-SigLevel = Optional TrustAll
+
+# SigLevel = Optional TrustAll
+
+SigLevel = Optional TrustedOnly
+Include = /etc/pacman.d/archlinuxcn(need created)
+
+vim /etc/pacman.d/archlinuxcn
+
+input:
 # 官方源
 Server   = http://repo.archlinuxcn.org/$arch
 # 163源

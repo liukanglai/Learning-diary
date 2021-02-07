@@ -56,6 +56,7 @@ float prim(MGraph* graph, int startVertex)
     return totalCost;
 }
 
+
 // 2. Kruskal's algorithm 并查集 （Union Find Set）
 
 int findRootInSet(int array[], int x)
@@ -98,6 +99,20 @@ bool unionSet(int array[], int node1, int node2)
     return true;
 }
 
-// *3. Sollin算法
+void Kruskal()
+{
+    int array[n];
+	  /* 将边排序 */
+	  qsort(e, n, sizeof(edge), cmp);
 
-
+	  for (i = 0; i < n; i++)
+	  {
+	  	x = findRootInSet(array, e[i].x);
+	  	y = findRootInSet(array, e[i].y);
+	  	if (x != y || (!x && !y))
+	  	{
+	  		printf("%c - %c : %d\n", e[i].x, e[i].y, e[i].w);
+	  		Union(x, y, e[i].w);
+	  	}
+	  }
+}
