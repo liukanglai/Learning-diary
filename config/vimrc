@@ -211,6 +211,12 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'                                                 
 Plug 'raimondi/delimitmate'
 
+" snippets
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 " assignment promot
 " Plug 'Shougo/echodoc.vim'
 
@@ -241,7 +247,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }  
 " 格式
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
-"Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki' 空格链接
 
 
 call plug#end()
@@ -350,3 +356,14 @@ let g:indentLine_enabled = 1
 "let g:indentLine_char_list = ['┆']
 let g:indentLine_char_list = ['¦']
 
+" Snippets
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

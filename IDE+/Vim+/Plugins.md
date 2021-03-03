@@ -155,6 +155,7 @@ vim-markdown
 " 表格
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
+- 格式
 "for your own format"
 Plug 'vimwiki/vimwiki'
 
@@ -189,7 +190,8 @@ call plug#end()
 # YouCompleteMe
   >vim中输入:echo has('python') || has('python3')   - if return 1,show right
   > 
-  >下载clang  cmake:
+  > Install cmake, vim and python clang (Install mono-complete, go, node, java and npm) clang boost llvm-libs cmake
+  >
   >>wget http://releases.llvm.org/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
   >cd .vim/plugged/YouCompleteMe
   > 

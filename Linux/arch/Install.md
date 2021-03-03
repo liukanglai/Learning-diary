@@ -85,6 +85,7 @@ swap | |/|linux swap
  
 ## 软件源
 
+- sudo pacman-mirrors -c China
 - vim /etc/pacman.d/mirrorlist 把China移到最前
 
 ```
@@ -116,16 +117,16 @@ Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 
 ## 基本设置
 
-- 时区: In -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+- 时区: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 - 设置时间标准UTC,并调整时间漂移 : hwclock –-systohc
 - 本地化: 
 
     > vim /etc/locale.gen (去#号 en_US.UTF-8 UTF-8   zh_CN.UTF-8 UTF-8    zh_HK.UTF-8 UTF-8   zh_TW.UTF-8 UTF-8 )
-    >     
+    >
     > locale-gen(生成)
-    >  
-    > vim /etc/locale.conf 输入： LANG=en_US.UTF-8
-     
+    >
+
+- vim /etc/locale.conf 输入： LANG=en_US.UTF-8
 - vim /etc/hostname 编辑主机名称hostname
 - vim /etc/hosts
  
@@ -166,9 +167,7 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 - pacman -S sudo
 - useradd -m -g users -G wheel -s /bin/bash …(name)
 - passwd ..(name)
-- 修改sudo权限:vim /etc/sudoers
-
-    > ln -s /usr/bin/vim /usr/bin/vi  visudo
+- 修改sudo权限:vim /etc/sudoers or (ln -s /usr/bin/vim /usr/bin/vi  visudo)
 
 `Uncomment to allow members of group wheel to execute any command
  去%wheel前#`
@@ -176,20 +175,19 @@ pacman -S networkmanager iw wpa_supplicant dialog dhcpcd netctl
 ## 源 
 
 - vim /etc/pacman.conf 文末：
-    
+
     > [multilib]去#
-    
+
     > /#[custom]变：
-    
+
     > [archlinuxcn]
 - 只能加一个
-    
+
 ```
 [archlinuxcn]
 # The Chinese Arch Linux communities packages.
 
 # SigLevel = Optional TrustAll
-
 SigLevel = Optional TrustedOnly
 Include = /etc/pacman.d/archlinuxcn(need created)
 
@@ -203,15 +201,18 @@ Server = http://mirrors.163.com/archlinux-cn/$arch
 # 清华大学
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
-    
+
 - 安装archlinuxcn-keyring
 - pacman -Syu
 
 ## 字体:
  
-- ttf-dejave ttf-liberation wqy-microhei ttf-wps-fonts
-- 本地化:  vim /etc/locale.gen `去#号 zh_CN.UTF-8 UTF-8 `
-- locale-gen(生成)
+- 思源字体:
+- adobe-source-han-serif-cn-fonts - 思源宋体简体中文部分
+- adobe-source-han-serif-tw-fonts - 思源宋体繁体中文部分
+- adobe-source-han-sans-cn-fonts - 思源黑体简体中文部分
+- adobe-source-han-sans-tw-fonts - 思源黑体繁体中文部分
+- ttf-dejavu ttf-liberation wqy-microhei ttf-wps-fonts
  
 ## 目录:
 

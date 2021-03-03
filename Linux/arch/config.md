@@ -65,6 +65,7 @@ AutoEnable=true
 
 ## 软件
  
+- libconfig
 - wget curl  exfat-utils p7zip unzip zip unrar ranger
 
 - install deepin-wine firstly.
@@ -195,6 +196,20 @@ sudo pacman -U <package-name>
 - 安装lattw-dock
   >布局/
 - 终端,字体
-  
+- 毛玻璃compton
+    > .config/compton.conf
+
 # backup
 
+# vmbox
+
+sudo pacman -S linux-headers
+sudo pacman -S virtualbox  选择 1 virtualbox-host-dkms
+sudo pacman -S virtualbox-guest-iso
+sudo /sbin/vboxconfig setup
+
+
+# java
+
+- sudo pacman -S jre-openjdk
+- sudo pacman -S jdk-openjdk
