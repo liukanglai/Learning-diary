@@ -16,6 +16,8 @@ yay -Syu
 ## 输入法：安装fcitx
  
 - kcm-fcitx
+- fcitx-table-extra adds Cangjie, Zhengma, Boshiamy support.
+- fcitx-table-other, tables for Latex, Emoji and others.
 
 1. fcitx+fcitx-im+fcitx-sunpinyin(fcitx-qt5 fcitx-configtool)
 2. 
