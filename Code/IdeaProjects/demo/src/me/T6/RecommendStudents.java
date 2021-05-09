@@ -1,7 +1,6 @@
 package me.T6;
 
 import javax.swing.*;
-import java.applet.Applet;
 import java.awt.Image;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
  * @author liukanglai
  * @date 5/2/21 - 5:45 PM
  */
-public class RecommendStudents extends Applet {
+public class RecommendStudents {
     public static void main(String[] args) {
         JFrame win = new JFrame("班级推优");
         win.setSize(500, 600);
@@ -185,11 +184,11 @@ public class RecommendStudents extends Applet {
     }
     public static class MyPanel extends JPanel {
 
-        JFrame frame;
+        //JFrame frame;
         int[] votesNum = new int[5];
 
         public MyPanel(JFrame frame, int[] votesNum) {
-            this.frame = frame;
+            //this.frame = frame;
             System.arraycopy(votesNum, 0, this.votesNum, 0, 5);
         }
         @Override
