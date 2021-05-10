@@ -13,18 +13,23 @@ public class RunGame {
     static class SomeOneRun extends Thread {
         String player;
         int who = 0;
-        JPanel panel;
+        JPanel panel0;
+        JPanel panel1;
+        JTextField label1 = new JTextField(8);
         Graphics g;
 
-        SomeOneRun(int who, String player, JPanel panel) {
+        SomeOneRun(int who, String player, JPanel panel0, JPanel panel1) {
             this.who = who;
             this.player = player;
-            this.panel = panel;
+            this.panel0 = panel0;
+            this.panel1 = panel1;
+            //g = panel0.getGraphics();
             Font font = new Font(null, Font.PLAIN, 15);
             JLabel label0 = new JLabel(player);
             label0.setFont(font);
-            panel.add(label0);
-            g = panel.getGraphics();
+            label1.setFont(font);
+            panel1.add(label1);
+            panel1.add(label0);
         }
 
         @Override
@@ -37,15 +42,9 @@ public class RunGame {
                 }
                 catch (InterruptedException e){
                 }
-                g = panel.getGraphics();
-                g.fillRect(20, 0, length[who]/3, 35);
-            }
-        }
-
-        class MyPanel extends JPanel {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
+                g = panel0.getGraphics();
+                label1.setText(String.valueOf(length[who])+"米");
+                g.fillRect(20, 100 + who*200, length[who]/3, 35);
             }
         }
 
@@ -56,7 +55,6 @@ public class RunGame {
         String player1 = "乙同学";
         String player2 = "ͬ丙同学";
 
-
         JFrame frame = new JFrame("赛跑");
         frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);
@@ -66,10 +64,12 @@ public class RunGame {
         JPanel in_panel0 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel in_panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel in_panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
-        SomeOneRun run0 = new SomeOneRun(0, player0, big_panel);
-        SomeOneRun run1 = new SomeOneRun(1, player1, big_panel);
-        SomeOneRun run2 = new SomeOneRun(2, player2, big_panel);
+        big_panel.add(in_panel0);
+        big_panel.add(in_panel1);
+        big_panel.add(in_panel2);
+        SomeOneRun run0 = new SomeOneRun(0, player0, big_panel, in_panel0);
+        SomeOneRun run1 = new SomeOneRun(1, player1, big_panel, in_panel1);
+        SomeOneRun run2 = new SomeOneRun(2, player2, big_panel, in_panel2);
 
         run0.start();
         run1.start();
