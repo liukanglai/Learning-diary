@@ -16,7 +16,7 @@
 #include <omp.h>
 
 int cmp(const void *a,const void *b){
-    return *((int*)a)-*((int*)b);
+    return *((int*)b)-*((int*)a);
 }
 // the reference code of qsort in C library
 void qsort_ref(int *array, int len, int (*cmp_in)(const void*,const void*))
@@ -164,12 +164,15 @@ int main(int argc, char ** argv)
 
     // step 1. test qsort in C library
     memcpy(unorder_array,array,sizeof(int)*len);
+    qsort_ref(unorder_array, len, cmp);
+    memcpy(array,unorder_array,sizeof(int)*len);
 
     gettimeofday(&t1,NULL);
     qsort_ref(unorder_array, len, cmp);
     gettimeofday(&t2,NULL);
 
-    printf("\nSorting %d number(s) costs %.5lf ms by qsort in C library. %.5lf element(s) per second\n"
+
+    printf("\nSorting %d number(s) costs %.5lf ms by qsort in C library. %.5lf element(s) per second, descending sequence\n"
             ,len,1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0,
             len/(1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0));
     int pass1 = 1;
@@ -184,6 +187,7 @@ int main(int argc, char ** argv)
         printf("qsort in C library did not passed.\n");
     }
 
+    /*
     // step 2. test a serial quicksort refernce code
     memcpy(unorder_array,array,sizeof(int)*len);
 
@@ -191,7 +195,7 @@ int main(int argc, char ** argv)
     quicksort_ref(unorder_array, len);
     gettimeofday(&t2,NULL);
 
-    printf("\nSorting %d number(s) costs %.5lf ms by a quicksort reference code. %.5lf element(s) per second\n"
+    printf("\nSorting %d number(s) costs %.5lf ms by a quicksort reference code. %.5lf element(s) per second, descending sequence\n"
             ,len,1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0,
            len/(1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0));
     int pass2 = 1;
@@ -205,6 +209,7 @@ int main(int argc, char ** argv)
     }else{
         printf("quicksort reference code did not passed.\n");
     }
+    */
 
     // step 3. test a serial mergesort refernce code
     memcpy(unorder_array,array,sizeof(int)*len);
@@ -213,7 +218,7 @@ int main(int argc, char ** argv)
     mergesort_ref(unorder_array, len);
     gettimeofday(&t2,NULL);
 
-    printf("\nSorting %d number(s) costs %.5lf ms by a mergesort reference code. %.5lf element(s) per second\n"
+    printf("\nSorting %d number(s) costs %.5lf ms by a mergesort reference code. %.5lf element(s) per second, descending sequence\n"
             ,len,1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0,
            len/(1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0));
     int pass3 = 1;
@@ -228,6 +233,7 @@ int main(int argc, char ** argv)
         printf("mergesort reference code did not passed.\n");
     }
 
+    /*
     // step 4. test your own sorting code
     memcpy(unorder_array, array, sizeof(int)*len);
 
@@ -235,7 +241,7 @@ int main(int argc, char ** argv)
     sort_yours(unorder_array, len);
     gettimeofday(&t2, NULL);
 
-    printf("\nSorting %d number(s) costs %.5lf ms by your sort. %.5lf element(s) per second\n"
+    printf("\nSorting %d number(s) costs %.5lf ms by your sort. %.5lf element(s) per second, ascending sequence\n"
             , len, 1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0,
            len/(1000*(t2.tv_sec-t1.tv_sec)+(t2.tv_usec-t1.tv_usec)/1000.0));
 
@@ -251,6 +257,7 @@ int main(int argc, char ** argv)
     }else{
         printf("your sort did not passed.\n");
     }
+    */
 
     free(unorder_array);
     free(array);

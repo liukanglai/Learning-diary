@@ -17,9 +17,9 @@
 * ip link –看网卡  `enp开头有线网卡 wlp无线网卡` 
 
     > 看有无网: 命令 ping www.baidu.com 后显 ….ms 即有网
-    >     
+    >
     > enp开头有线网卡 wlp无线网卡 
-    
+
 
 (手机usb共享网,连接电脑)
 
@@ -213,6 +213,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 - adobe-source-han-sans-cn-fonts - 思源黑体简体中文部分
 - adobe-source-han-sans-tw-fonts - 思源黑体繁体中文部分
 - ttf-dejavu ttf-liberation wqy-microhei ttf-wps-fonts
+- JetBrains Mono!!!
  
 ## 目录:
 
