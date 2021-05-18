@@ -1,3 +1,4 @@
+# Copy from https://github.com/DevilInChina/GemmSamples 
 # Gemm Samples On CUDA
 
 *If there is any bugs you found.*
