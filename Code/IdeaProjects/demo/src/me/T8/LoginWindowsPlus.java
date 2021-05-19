@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * @author liukanglai
@@ -37,6 +41,7 @@ public class LoginWindowsPlus {
             idField.setFont(new Font(null, Font.PLAIN, 15));
             JButton idButton = new JButton("查询");
             idButton.setFont(new Font(null, Font.PLAIN, 15));
+
             student_id_panel.add(id);
             student_id_panel.add(idField);
             student_id_panel.add(idButton);
@@ -114,6 +119,46 @@ public class LoginWindowsPlus {
             yes_button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    resumeText.setText("");
+                    resumeText.append(idField.getText() + '\n');
+                    resumeText.append(nameField.getText() + '\n');
+                    if (genderButton0.isSelected()) {
+                        resumeText.append("男\n");
+                    } else {
+                        resumeText.append("女\n");
+                    }
+                    resumeText.append(birthdayField.getText() + '\n');
+                    if (tuanyuanButton.isSelected()) {
+                        resumeText.append("不是团员\n");
+                    } else {
+                        resumeText.append("是团员\n");
+                    }
+                    resumeText.append((String) professionButton.getSelectedItem() + '\n');
+                    resumeText.append(addressField.getText() + '\n');
+                    FileWriter studentInfo = null;
+                    try {
+                        studentInfo = new FileWriter(idField.getText() + ".txt");
+                        studentInfo.write(resumeText.getText());
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    } finally {
+                        if(studentInfo != null) {
+                            try {
+                                studentInfo.close();
+                            } catch (IOException ioException) {
+                                ioException.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+            options_panel.add(yes_button);
+            JButton read_button = new JButton("读取");
+            read_button.setFont(new Font(null, Font.PLAIN, 15));
+            read_button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    resumeText.setText("");
                     resumeText.append(idField.getText() + '\n');
                     resumeText.append(nameField.getText() + '\n');
                     if (genderButton0.isSelected()) {
@@ -131,11 +176,33 @@ public class LoginWindowsPlus {
                     resumeText.append(addressField.getText() + '\n');
                 }
             });
-            options_panel.add(yes_button);
-            JButton cancel_button = new JButton("读取");
-            cancel_button.setFont(new Font(null, Font.PLAIN, 15));
-
-            options_panel.add(cancel_button);
+            idButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    resumeText.setText("");
+                    FileReader studentInfo = null;
+                    try {
+                        studentInfo = new FileReader(idField.getText() + ".txt");
+                        char[] info = new char[5];
+                        int length;
+                        while((length = studentInfo.read(info)) != -1) {
+                            String infoString = new String(info, 0, length);
+                            resumeText.append(infoString);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if(studentInfo != null) {
+                            try {
+                                studentInfo.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+            options_panel.add(read_button);
 
             card_panel.add(grid_panel);
 

@@ -203,7 +203,7 @@ cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
             // and accumulate the results
             for (int m = 0; m < (A.width / BLOCK_SIZE); ++m) {
 
-                // Get sub-matrix Asub of A
+                /Global, local, texture, constant, shared and register memory. / Get sub-matrix Asub of A
                 Matrix Asub = GetSubMatrix(A, blockRow, m);
 
                 // Get sub-matrix Bsub of B
