@@ -8,21 +8,6 @@
     - gcc gdb vscode zsh
     - IDE qtbook dropbox nsa 刷机 wine+
 
-1. 计算机基础 
-2. 导论
-3. language
-    - Java并发编程实践
-    - 码出高效
-    - Java性能优化权威指南
-    - 代码整洁之道
-    - 敏捷软件开发
-    - Spring in action
-    - SSM(Spring+Spring MVC+Mybatis)
-    - 消息队列基本原理: https://github.com/dunwu/blog/blob/master/source/_posts/theory/mq.md
-4. 数据结构+算法
-
-    - Prime
-    - 
     - Algorithms (4th, 2011) by Robert Sedgewick
     - Data Structures and Algorithm Analysis in C (2nd, 1996) by Mark Allen Weiss
     - Data Structures and Algorithm Analysis in Java (3rd, 2011) by Mark A. Weiss
@@ -54,69 +39,34 @@
 
     - Introduction to the Theory of Computation by Michael Sipser
 
-5. 数字逻辑
-    - Digital Fundamentals (9th, 2005) by Thomas L. Floyd
-    - Digital Integrated Circuits: A Design Perspective (2016) by Jan M. Rabaey
-    - Digital Design and Computer Architecture by David Money Harris, Sarah L. Harris
-6. 编译原理
     - Structure and Interpretation of Computer Programs (2nd, 1996) by Harold Abelson (SICP)
-    - Essentials of Programming Languages (2001) by Daniel P. Friedman, Mitchell Wand (EOPL)
-    - Types and Programming Languages (2002) by Benjamin C. Pierce (TAPL)
-    - Compilers: Principles, Techniques, and Tools (1986) by Alfred V. Aho and Monica S. Lam (龙书)
-    - Modern Compiler Implementation in C (2004) by Andrew W. Appel (虎书)
-    - Advanced Compiler Design and Implementation (1997) by Steven Muchnick (鲸书)
-    - Concepts, Techniques, and Models of Computer Programming (2004) by Peter Van Roy, Seif Haridi
 
-7. 数据库
+    - Compilers: Principles, Techniques, and Tools (1986) by Alfred V. Aho and Monica S. Lam (龙书)
     - 《Readings in Database Systems》 （暂无中译本）	Joe Hellerstein’s Berkeley CS 186
     - Database System Concepts (6th, 2010) by Sudarshan, Korth
     - Fundamentals of Database System (7th, 2017) by Ramez Elmasri, Shamkant B. Navathe
     - Database System Implementation by Hector Garcia-Molina, Jeffrey D.Ullman and Jennifer Widom
-
-
-For Database Design
-
 Database Modeling and Design by Toby J. Teorey
 Beginning Database Design by Clare Churcher
-Relational Database Index Design and the Optimizers by Tapio Lahdenmaki
-For SQL
 
 Sams teach yourself SQL in 10 minutes,4th edition by Ben Forta / SQL 必知必会
 Learning SQL by Alan Beaulieu
-SQL Cookbook by Anthony Molinaro
-SQL Antipatterns: Avoiding the Pitfalls of Database Programming (2010) by Bill Karwin
-T-SQL Fundamentals by Itzik Ben-Gan
-T-SQL Querying by Itzik Ben-Gan
-SQL Queries for Mere Mortals: A Hands-on Guide to Data Manipulation in SQL by John Viescas
-SQL Pocket Guide by Jonathan Gennick
-The Art of SQL by Stéphane Faroult
-SQL Performance Explained by Markus Winand
 
 - MySQL
 
     - 深入浅出MySQL
-    - 大众点评订单系统分库分表实践: https://tech.meituan.com/2016/11/18/dianping-order-db-shardin
-8. 汇编语言 
-    - Professional Assembly Language (2005) by Richard Blum
-    - Assembly Language for Intel-Based Computers (1998) by Kip Irvine
-    - Assembly Language: Step-By-Step by Jeff Duntemann
     - 汇编语言 (2003) by 王爽
+
 6. 计算机架构
+
 - Computer Organization and Design: the Hardware/Software Interface (5th, 2013) by David A Patterson John L Hennessy and John L. Hennessy
-- Computer Architecture: A Quantitative Approach (6th, 2017) by David A Patterson John L Hennessy and John L. Hennessy
+
 - Computer Systems: A Programmer‘s Perspective (3rd, 2015) by Randal E.Bryant, David O'Hallaron (CSAPP)
-7. 组成原理
-8. 操作系统 
+
     - Operating System Concepts (10th, 2018) by Abraham Silberschatz, Peter B. Galvin, Greg Gagne
     - Modern Operating Systems (4th, 2014) by Andrew S. Tanenbaum
-    - Operating Systems (3rd, 2003) by Harvey Deitel, Paul Deitel, David R. Choffnes
-    - 
-    - Operating Systems Design and Implementation (3rd, 2006) by Andrew S. Tanenbaum, Albert S. Woodhull
-    - Principles of Computer System Design: An Introduction by Jerome H. Saltzer
-    - Systems Performance (2013) by Brendan Gregg
-    - Orange'S:一个操作系统的实现 (2009) by 于渊
     - 操作系统真象还原 (2016) by 郑钢
-    - 一个64位操作系统的设计与实现 (2018) by 田宇
+
 9. 分布式技术 
     - Maarten van Steen和Andrew Tanenbaum所著的 《分布式系统原理与范型》（中文第二版，英文第三版）。
     - Distributed Operating Systems: Concepts and Design by Pradeep K. Sinha
@@ -126,6 +76,7 @@ SQL Performance Explained by Markus Winand
     - TCP/IP Illustrated: The Protocols, Vol. 1 (1st, 1994) (2nd, 2011) by Richard Stevens
     - TCP/IP Illustrated: The Implementation, Vol. 2 by Richard Stevens
     - TCP/IP Illustrated: TCP for Transactions, HTTP, NNTP and the Unix Domain Protocols, Vol. 3 by Richard Stevens
+
 11. 软件工程
 12. Linux
     - Beginning Linux Programming by Mathew Neil and Richard Stones
@@ -133,7 +84,6 @@ SQL Performance Explained by Markus Winand
     - 
     - Advanced Programming in the UNIX Environment (3rd, 2013) by W. Richard Stevens (APUE)
     - The Design of the UNIX Operating System (1986) by Maurice J. Bach
-    - The Art of Unix Programming (2003) by Eric S. Raymond
     - 
     - Linux Kernel Development (3rd, 2010) by Robert Love
     - The Linux Programming Interface (2010) by Michael Kerrisk
@@ -154,7 +104,7 @@ SQL Performance Explained by Markus Winand
     - Learning the bash Shell (3rd, 2005) by Cameron Newham, Bill Rosenblatt
     - Bash Pocket Reference (2nd, 2016) by Arnold Robbins
 
-13. Web
+1. Web
     - HTML与CSS入门经典
     - JavaScript DOM编程艺术
     - jQuery权威指南
