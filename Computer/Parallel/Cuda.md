@@ -1,19 +1,46 @@
-# memory
+# hardware
+
+1. max
+- one block up to have 512(or 1024) threads
+- max dimension size of block:(1024, 1024, 64), grid:(2^31-1, 2^16-1, 2^16-1)
+- concurrent kernel execution: 32
+- max threads per multiprocessor: 2048
+- max threads per block: 1024
+
+2. 
+- G80 have 16 SM assignment: Streaming Multiprocessors (SM) to run the threads, up to 8 blocks, and(not or) 768 threads.
+- G80, scheduling: 32 threads - a warp, divide eack block to many warps, 8 cpus, each do 4 threads, each do a warp.  Really parallel
+- shared memory (16K) to a SM, 2 blocks, each can only use 8K.
+
+## memory
 
 - local memory
-- shared memory
+- shared memory per block(48M)
 - global memory
+- constant memory
+
+# compile (nvcc)
+
+1. nvcc to PTX Code and CPU Code
+2. PTX to Target Compiler (G80, GPU...)
 
 # grammar
 
 cudaMalloc(&Md, size)
+cudaMalloc((void /**)&Md, size) // 强转，普遍
+
+cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice) // cudaMemcpyDeviceToHost, cudaMemcpyDeviceToDevice...
 cudaFree(Md)
-cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
-- 
 
         _device_ float DeviceFUnc  (device to device) // can't use the address of function
-        _global_ void KernelFunc (host to device)
+        _global_ void KernelFunc (host to device) // kernel function
         _host_ float HostFunc (host to host)
+        _host_ _device_ ...
+
+        // variable type
+        _shared_  
+        _devide_ 
+        _constant_
 
 - 不写，默认host
 
@@ -25,10 +52,24 @@ cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
 - dimGrid(1, 1) (block in it)
 - dimBlock(width,width) (have max. Thread in it)
 
+## Kernel
+
+    kernelFunc<<< nB, nT, nS, Sid>>>(...) // nS, Sid are optional
+- nB: grid size
+- nT: block size
+- nS: shared memory size (bytes)
+- Sid: stream ID, default is 0 (kernel trans)
+
+- ... 内must is device points
+
+
 #
 
-- host access it: global constant, can't: register(automatic), shared, local
+- dim3 (x, y, z)
+- threadIdx, blockIdx, blockDim, gridDim
+- /__syncthreads()
 
+- host access it: global constant, can't: register(automatic), shared, local
 - GPU can only use pointers in global memory, no other pointers
 
         // Matrices are stored in row-major order:
@@ -236,23 +277,12 @@ cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
 
 ## API
 
-- dim3 (x, y, z)
 - Math: sprt, sin...
 - memory
 
 
+# branch
 
-# hardware 
+- all do, to give up some.
 
-1. max
-- one block up to have 512(or 1024) threads
-- max dimension size of block:(1024, 1024, 64), grid:(2^31-1, 2^16-1, 2^16-1)
-- concurrent kernel execution: 32
-- max threads per multiprocessor: 2048
-- max threads per block: 1024
-
-2. 
-- G80 have 16 SM assignment: Streaming Multiprocessors (SM) to run the threads, up to 8 blocks, and(not or) 768 threads.
-- G80, scheduling: 32 threads - a warp, divide eack block to many warps, 8 cpus, each do 4 threads, each do a warp.  Really parallel
-- shared memory (16K) to a SM, 2 blocks, each can only use 8K.
 
