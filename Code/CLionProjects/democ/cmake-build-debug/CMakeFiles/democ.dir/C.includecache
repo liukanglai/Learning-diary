@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/main.c
+/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c
 stdio.h
+-
+math.h
 -
 
