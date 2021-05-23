@@ -1,15 +1,14 @@
-# 
+# memory
 
-
-
+- local memory
+- shared memory
+- global memory
 
 # grammar
 
 cudaMalloc(&Md, size)
 cudaFree(Md)
 cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
-
-
 - 
 
         _device_ float DeviceFUnc  (device to device) // can't use the address of function
@@ -20,10 +19,8 @@ cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
 
 - on device function: no recursion; no static variable declaration inside; no 变参
 
-
         int tx = threadIdx.x;
         int ty = threadIdx.y;
-
 
 - dimGrid(1, 1) (block in it)
 - dimBlock(width,width) (have max. Thread in it)
@@ -238,3 +235,24 @@ cudaMemcpy(Md, M, size, cudaMemcpyHostToDevice)
         }
 
 ## API
+
+- dim3 (x, y, z)
+- Math: sprt, sin...
+- memory
+
+
+
+# hardware 
+
+1. max
+- one block up to have 512(or 1024) threads
+- max dimension size of block:(1024, 1024, 64), grid:(2^31-1, 2^16-1, 2^16-1)
+- concurrent kernel execution: 32
+- max threads per multiprocessor: 2048
+- max threads per block: 1024
+
+2. 
+- G80 have 16 SM assignment: Streaming Multiprocessors (SM) to run the threads, up to 8 blocks, and(not or) 768 threads.
+- G80, scheduling: 32 threads - a warp, divide eack block to many warps, 8 cpus, each do 4 threads, each do a warp.  Really parallel
+- shared memory (16K) to a SM, 2 blocks, each can only use 8K.
+

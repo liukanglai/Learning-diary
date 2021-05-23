@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
-project(demo C)
+project(demo)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 14)
 
-add_executable(demo main.c)
-
-all:
-    gcc -O3 -fopenmp -lm main.c ~/github/OpenBLAS/build/lib/libopenblas.a -o gemm -I ~/github/OpenBLAS/build
+add_executable(demo main.cpp)

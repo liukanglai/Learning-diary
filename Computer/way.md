@@ -42,15 +42,17 @@
     - Structure and Interpretation of Computer Programs (2nd, 1996) by Harold Abelson (SICP)
 
     - Compilers: Principles, Techniques, and Tools (1986) by Alfred V. Aho and Monica S. Lam (龙书)
+
     - 《Readings in Database Systems》 （暂无中译本）	Joe Hellerstein’s Berkeley CS 186
     - Database System Concepts (6th, 2010) by Sudarshan, Korth
     - Fundamentals of Database System (7th, 2017) by Ramez Elmasri, Shamkant B. Navathe
     - Database System Implementation by Hector Garcia-Molina, Jeffrey D.Ullman and Jennifer Widom
-Database Modeling and Design by Toby J. Teorey
-Beginning Database Design by Clare Churcher
 
-Sams teach yourself SQL in 10 minutes,4th edition by Ben Forta / SQL 必知必会
-Learning SQL by Alan Beaulieu
+    Database Modeling and Design by Toby J. Teorey
+    Beginning Database Design by Clare Churcher
+    
+    Sams teach yourself SQL in 10 minutes,4th edition by Ben Forta / SQL 必知必会
+    Learning SQL by Alan Beaulieu
 
 - MySQL
 
