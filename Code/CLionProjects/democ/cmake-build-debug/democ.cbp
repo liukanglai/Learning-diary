@@ -76,7 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c">
+		<Unit filename="/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/main.c">
 			<Option target="democ"/>
 		</Unit>
 		<Unit filename="/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/CMakeLists.txt">

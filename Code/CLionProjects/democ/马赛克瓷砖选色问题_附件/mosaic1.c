@@ -97,7 +97,7 @@ void findColor(int have[][3], int have_size, int need[][3], int need_size, int r
                 min = distance;
                 result[i] = j;
             }
-            printf("%f %d\n", distance, j);
+            //printf("%f %d\n", distance, j);
         }
     }
 }

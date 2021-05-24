@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/democ.dir/mosaic1.c.o -o democ  -lm 
+/usr/bin/cc -g CMakeFiles/democ.dir/main.c.o -o democ  -lm 

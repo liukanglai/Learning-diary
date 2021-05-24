@@ -76,27 +76,27 @@ include CMakeFiles/democ.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/democ.dir/flags.make
 
-CMakeFiles/democ.dir/mosaic1.c.o: CMakeFiles/democ.dir/flags.make
-CMakeFiles/democ.dir/mosaic1.c.o: ../mosaic1.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/democ.dir/mosaic1.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/democ.dir/mosaic1.c.o -c /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c
+CMakeFiles/democ.dir/main.c.o: CMakeFiles/democ.dir/flags.make
+CMakeFiles/democ.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/democ.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/democ.dir/main.c.o -c /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/main.c
 
-CMakeFiles/democ.dir/mosaic1.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/democ.dir/mosaic1.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c > CMakeFiles/democ.dir/mosaic1.c.i
+CMakeFiles/democ.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/democ.dir/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/main.c > CMakeFiles/democ.dir/main.c.i
 
-CMakeFiles/democ.dir/mosaic1.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/democ.dir/mosaic1.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c -o CMakeFiles/democ.dir/mosaic1.c.s
+CMakeFiles/democ.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/democ.dir/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/main.c -o CMakeFiles/democ.dir/main.c.s
 
 # Object files for target democ
 democ_OBJECTS = \
-"CMakeFiles/democ.dir/mosaic1.c.o"
+"CMakeFiles/democ.dir/main.c.o"
 
 # External object files for target democ
 democ_EXTERNAL_OBJECTS =
 
-democ: CMakeFiles/democ.dir/mosaic1.c.o
+democ: CMakeFiles/democ.dir/main.c.o
 democ: CMakeFiles/democ.dir/build.make
 democ: CMakeFiles/democ.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable democ"

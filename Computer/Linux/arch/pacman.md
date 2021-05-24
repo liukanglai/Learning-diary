@@ -64,3 +64,11 @@ Shell
 1
 journalctl --vacuum-size=50M
 可以限制日志记录大小在50M，我使用一年没清理过，日志记录大概在2G左右。设置了固定大小为50M后，多的日志就会被删掉。
+
+
+
+# downgrade
+
+- sudo pacman -S downgrade
+- sudo downgrade [PACKAGE, ...] [-- [PACMAN OPTIONS]]
+- sudo downgrade gcc

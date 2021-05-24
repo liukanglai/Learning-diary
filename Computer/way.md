@@ -4,7 +4,7 @@
 > https://github.com/CyC2018/CS-Notes
 > https://github.com/PansonPanson/Java-Notes
 
-    - Vim：vim-tutor, vim8文本处理实战 practice vim
+    - Vim：vimtutor, vim8文本处理实战 practice vim
     - gcc gdb vscode zsh
     - IDE qtbook dropbox nsa 刷机 wine+
 

@@ -8,6 +8,7 @@
 #include "gemm.cuh"
 #include "gemm_cublas.cuh"
 #include "spmm.cuh"
+#include "defines.h"
 
 void swap(int *a, int *b) {
     if (*a != *b)
