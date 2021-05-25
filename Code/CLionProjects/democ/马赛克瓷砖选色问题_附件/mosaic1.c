@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -9,6 +10,7 @@
 void readColor(FILE *file, int integers[][3], int size);
 void findColor(int have[][3], int have_size, int need[][3], int need_size, int result[]);
 void writefile(FILE *file, int result[], int size);
+double variance(int x, int y, int z);
 
 int main(void) {
     FILE *file1;
@@ -91,9 +93,10 @@ void findColor(int have[][3], int have_size, int need[][3], int need_size, int r
         double min = 1000000;
         double distance = 0;
         for(int j = 0; j < have_size; j++) {
-            if((distance = (pow((have[j][0] - need[i][0]), 2) + 
+            if((distance = ((pow((have[j][0] - need[i][0]), 2) + 
                pow((have[j][1] - need[i][1]), 2) + 
-               pow((have[j][2] - need[i][2]), 2))) < min) {
+               pow((have[j][2] - need[i][2]), 2)) / 4.0 + 
+               3 * (variance(have[j][0] - need[i][0], have[j][1] - need[i][1], have[j][2] - need[i][2])) / 4.0)) < min) {
                 min = distance;
                 result[i] = j;
             }
@@ -108,4 +111,9 @@ void writefile(FILE *file, int result[], int size) {
         fprintf(file,"%d,", i+1);
         fprintf(file,"%d\n",result[i]+1);
     }
+}
+
+double variance(int x, int y, int z) {
+    double average = (x + y + z) / 3.0;
+    return pow(x-average, 2) + pow(x-average, 2) + pow(x-average, 2);
 }
