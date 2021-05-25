@@ -7,7 +7,7 @@
 #define MATRIXMULTISAMPLES_GEMM_CUH
 
 #include <openblas_config.h>
-#include <cblas.h>
+#include <generated/cblas.h>
 //#include <cublas.h>
 
 void gemm_ref(VALUE_TYPE *A, VALUE_TYPE *B, VALUE_TYPE *C, int m, int k, int n, double *time_val) {
