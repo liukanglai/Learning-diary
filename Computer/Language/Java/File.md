@@ -11,3 +11,11 @@
 # user-defined
 
 # file
+
+    File file0 = new file("1.txt");
+    File file1 = new file("/home/liukanglai/");
+    File file2 = new file("/home", "liukanglai");
+    File file3 = new file(file2, "liukanglai");
+
+
+
