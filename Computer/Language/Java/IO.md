@@ -3,11 +3,7 @@
 
 # InputStream  OutputStream (字节)
 
-
-
 # Writer Reader (字符, 不能处理非文本文件)
-
-
 
 # 节点流
 
@@ -36,9 +32,7 @@
 
     String read = br.readLine();
 
-
-
-- InputStreamReader isr = new InputStreamReader(file, "UTF-8");
+2. InputStreamReader isr = new InputStreamReader(file, "UTF-8");
 
 > ASCII(American 7 bits), ISO8859-1(E, 8 bits), GB2312(chinese, 2 bytes), GBK(Chinese+), Unicode(2 bytes), UTF-8(1-4 bytes, chinese have 3 bytes)
 
@@ -64,5 +58,3 @@
 
 
 # 对象流
-
-

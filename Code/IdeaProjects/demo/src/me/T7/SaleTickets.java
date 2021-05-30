@@ -10,27 +10,26 @@ public class SaleTickets {
 
     public static class Sale implements Runnable {
         static int saleTickets = 0;
+        /*
         String name;
 
         Sale(String name) {
             this.name = name;
         }
 
+         */
+
         @Override
         public void run() {
             while (true) {
-                synchronized (Sale.class) {
-                    if(saleTickets < 100) {
+                synchronized (Sale.class) { //synchronized (this) same
+                        if(saleTickets < 100) {
                         saleTickets++;
-                        System.out.println(name + "正在售票, 还有" + String.valueOf(100 - saleTickets) + "张");
+//                        System.out.println(name + "正在售票, 还有" + String.valueOf(100 - saleTickets) + "张");
+                        System.out.println(Thread.currentThread().getName() + "正在售票, 还有" + String.valueOf(100 - saleTickets) + "张");
                     }
                     else{
                         break;
-                    }
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }
@@ -38,6 +37,7 @@ public class SaleTickets {
     }
     public static void main(String[] args) {
 
+        /*
         Sale win1 = new Sale("窗口1");
         Sale win2 = new Sale("窗口2");
         Sale win3 = new Sale("窗口3");
@@ -47,5 +47,16 @@ public class SaleTickets {
         thread1.start();
         thread2.start();
         thread3.start();
+
+         */
+
+        Sale sale = new Sale();
+        Thread thread0 = new Thread(sale);
+        Thread thread1 = new Thread(sale);
+        Thread thread2 = new Thread(sale);
+
+        thread0.start();
+        thread1.start();
+        thread2.start();
     }
 }

@@ -1,28 +1,30 @@
 # 符号
 
-普通符号
+> 支持两种方式: \$...$ or \&...;
 
-\pm 
-\times 
-\div 
-\mid
-\cdot 
-\circ 
-\ast 
-\bigodot 
-\bigotimes 
-\leq 
+## 普通符号
 
-\geq 
-\neq 
-\approx 
-\equiv 
-\sum 
-\prod 
-\coprod
+&pm;
+&times;
+&div;
+&mid;
+&cdot;
+&circ;
+&ast;
+&bigodot;
+&bigotimes;
+&leq;
+&geq;
+&neq;
+&approx;
+&equiv;
+&sum;
+&prod;
+&coprod;
 
 
 ## 数学符号（$\log$）
+$a^b$
 
 1. 上下标
 
@@ -223,120 +225,129 @@ y{\prime}x \int \iint \iiint \oint \lim \infty \nabla
 
 \hat{y} \check{y} \breve{y}
 
+# 
+
+        ¼ 四分之一符号 \&frac14;
+        
+        ” 双引号 \&quot;
+        
+        × 乘号 \&times;
+        
+        ← 向左箭头 \&larr;
+        
+        & AND符号 \&amp;
+        
+        ÷ 除号 \&divide;
+        
+        ↑ 向上箭头 \&uarr;
+        
+        <  小于符号 \&lt;
+        
+        ± 正负符号 \&plusmn;
+        
+        → 向右箭头 \&rarr;
+        
+        \>  大于符号 \&gt;
+        
+        ↓ 向下箭头 \&darr;
+        
+          空格 \&nbsp;
+        
+        √ 根号 \&radic;
+        
+        ↑ 双向箭头 \&harr;
+        
+        ?  倒问号 \&iquest;
+        
+        ∞ 无限大符号 \&infin;
+        
+        ⇐ 双线向左箭头 \&lArr;
+        
+        ?  双左箭头 \&laquo;
+        
+        ∠ 角度符号 \&ang;
+        
+        ⇑ 双线向上箭头 \&uArr;
+        
+        ?  双右箭头 \&raquo;
+        
+        ∫ 微积分符号 \&int;
+        
+        ⇒ 双线向右箭头 \&rArr;
+        
+        ‘ 左单引号 \&lsquo;
+        
+        ° 度数符号 \&deg;
+        
+        ⇓ 双线向下箭头 \&dArr;
+        
+        ’ 右单引号 \&rsquo;
+        
+        ≠ 不等于符号 \&ne;
+        
+        ⇔ 双线双向箭头 \&hArr;
+        
+        “ 左双引号 \&ldquo;
+        
+        ≡ 相等符号 \&equiv;
+        
+        ♠ 黑桃符号 \&spades;
+        
+        ” 右双引号 \&rdquo;
+        
+        ≤ 小于等于符号 \&le;
+        
+        ♣ 梅花符号 \&clubs;
+        
+        ¶ 段落符号 \&para;
+        
+        ≥ 大于等于符号 \&ge;
+        
+        ♥ 红心符号 \&hearts;
+        
+        § 章节符号 \&sect;
+        
+        ⊥ 垂直符号 \&perp;
+        
+        ♦ 方块符号 \&diams;
+        
+        © 版权所有符号 \&copy;
+        
+         ½ 二分之一符号 \&frac12;
+        
+        ∴ 所以符号 \&there4;
+        
+        …  \&hellip; 
+        
+        ® 注册商标符号 \&reg;
+        
+        1 批注1符号 \&sup1; 
+        
+        2 批注2符号,平方 \&sup2; 
+        
+        ™ 商标符号 \&trade;
+        
+        γ Gamma符号 \&gamma;
+        
+        € 欧元符号 \&euro;
+        
+        ￠ 美分符号 \&cent;
+        
+        ‰ 千分符号 \&permil;
+        
+        ￡ 英镑符号 \&pound;
+        
+        ￥ 日圆符号 \&yen; 
+
+        ⊕ \&oplus;
+
+# 字母
+
+- ƒ \&fnof;
+- 大写: 首字母大写即可
 
 
-¼ 四分之一符号 \&frac14;
-
-” 双引号 \&quot;
-
-× 乘号 \&times;
-
-← 向左箭头 \&larr;
-
-& AND符号 \&amp;
-
-÷ 除号 \&divide;
-
-↑ 向上箭头 \&uarr;
-
-<  小于符号 \&lt;
-
-± 正负符号 \&plusmn;
-
-→ 向右箭头 \&rarr;
-
-\>  大于符号 \&gt;
-
-↓ 向下箭头 \&darr;
-
-  空格 \&nbsp;
-
-√ 根号 \&radic;
-
-↑ 双向箭头 \&harr;
-
-?  倒问号 \&iquest;
-
-∞ 无限大符号 \&infin;
-
-⇐ 双线向左箭头 \&lArr;
-
-?  双左箭头 \&laquo;
-
-∠ 角度符号 \&ang;
-
-⇑ 双线向上箭头 \&uArr;
-
-?  双右箭头 \&raquo;
-
-∫ 微积分符号 \&int;
-
-⇒ 双线向右箭头 \&rArr;
-
-‘ 左单引号 \&lsquo;
-
-° 度数符号 \&deg;
-
-⇓ 双线向下箭头 \&dArr;
-
-’ 右单引号 \&rsquo;
-
-≠ 不等于符号 \&ne;
-
-⇔ 双线双向箭头 \&hArr;
-
-“ 左双引号 \&ldquo;
-
-≡ 相等符号 \&equiv;
-
-♠ 黑桃符号 \&spades;
-
-” 右双引号 \&rdquo;
-
-≤ 小于等于符号 \&le;
-
-♣ 梅花符号 \&clubs;
-
-¶ 段落符号 \&para;
-
-≥ 大于等于符号 \&ge;
-
-♥ 红心符号 \&hearts;
-
-§ 章节符号 \&sect;
-
-⊥ 垂直符号 \&perp;
-
-♦ 方块符号 \&diams;
-
-© 版权所有符号 \&copy;
-
- ½ 二分之一符号 \&frac12;
-
-∴ 所以符号 \&there4;
-
-…  \&hellip; 
-
-® 注册商标符号 \&reg;
-
-1 批注1符号 \&sup1; 
-
-2 批注2符号、平方 \&sup2; 
+![sign](alpha.png)
 
 
-™ 商标符号 \&trade;
 
-γ Gamma符号 \&gamma;
-
-€ 欧元符号 \&euro;
-
-￠ 美分符号 \&cent;
-
-‰ 千分符号 \&permil;
-
-￡ 英镑符号 \&pound;
-
-￥ 日圆符号 \&yen; 
-
-
-⊕ \&oplus;
