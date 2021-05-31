@@ -1,4 +1,5 @@
 # 如何撤销 Git 操作？ 待消化
+
 作者： 阮一峰
 
 日期： 2019年12月24日
@@ -72,6 +73,9 @@ $ git rm --cached [filename]
 $ git branch feature
 
 # 切换到这几次提交之前的状态
+
+- git log
+- git reflog
 $ git reset --hard [当前分支此前的最后一次提交]
 
 # 切换到 feature 分支
