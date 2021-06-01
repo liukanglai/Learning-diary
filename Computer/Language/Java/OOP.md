@@ -52,6 +52,8 @@
 - extends class
 - super
 
+- 构造方法不能继承
+
 ## polymorphism
 
 - overwrite, override: subclass to superclass, 权限不小，不能重写private方法
