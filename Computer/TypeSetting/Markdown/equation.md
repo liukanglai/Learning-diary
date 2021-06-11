@@ -24,7 +24,6 @@
 
 
 ## 数学符号（$\log$）
-$a^b$
 
 1. 上下标
 
@@ -34,16 +33,14 @@ $a^b$
 2. 分数
 
 \frac{ }{ }
-
-第一个{ }写分子，第二个{ }写分母。
-
-分数 3+8a5b+63+8a5b+6 $\frac{3+8a}{5b+6}$
+- 第一个{ }写分子，第二个{ }写分母。
+$\frac{3+8a}{5b+6}$
 
 3. 累加
 
 \sum_{ }^{ }
 
-累加号的上标下标的前后顺序可以互换。
+- 累加号的上标下标的前后顺序可以互换。
 
 名称 数学表达式 markdown公式
 
@@ -101,9 +98,8 @@ $a^b$
 
 左箭头 limn→+∞nlimn→+∞n $\lim_{n\rightarrow+\infty} n$
 
-关系运算符
+- 关系运算符
 
-名称 数学表达式 markdown公式
 
 大于等于 ≥≥ $\geq$
 
@@ -115,9 +111,7 @@ $a^b$
 
 属于 ∈∈ $\in$
 
-二元运算符
-
-名称 数学表达式 markdown公式
+- 二元运算符
 
 加减 ±± $\pm$
 
@@ -247,7 +241,7 @@ y{\prime}x \int \iint \iiint \oint \lim \infty \nabla
         
         → 向右箭头 \&rarr;
         
-        \>  大于符号 \&gt;
+        >  大于符号 \&gt;
         
         ↓ 向下箭头 \&darr;
         
@@ -346,8 +340,4 @@ y{\prime}x \int \iint \iiint \oint \lim \infty \nabla
 - ƒ \&fnof;
 - 大写: 首字母大写即可
 
-
 ![sign](alpha.png)
-
-
-
