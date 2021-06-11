@@ -1,4 +1,3 @@
-
 6个月：https://www.educative.io/paths
 
 #
@@ -8,8 +7,16 @@
 > https://github.com/PansonPanson/Java-Notes
 
     - Vim：vimtutor, vim8文本处理实战 practice vim
-    - gcc gdb vscode zsh
+    - blog hexo 
+    - gcc gdb vscode shell/bash git 
     - IDE qtbook dropbox nsa 刷机 wine+
+
+2. language
+- c
+- c++ stl
+- java
+- python
+- scheme
 
 3. 算法
 
@@ -96,6 +103,11 @@ MySQL:
 Linux Drivers:
 - Linux Device Drivers by Alessandro Rubini, Greg Kroah-Hartman, and Jonathan Corbet
 - Understanding the Linux Kernel by Daniel P. Bovet and Marco Cesati
+
+//- The Design of the UNIX Operating System (1986) by Maurice J. Bach
+//- The Art of Unix Programming (2003) by Eric S. Raymond
+//- Linux Kernel Development (3rd, 2010) by Robert Love
+//- The Linux Programming Interface (2010) by Michael Kerrisk
 
 Tools:
 - sed & awk by Dale Dougherty, Arnold Robbins
