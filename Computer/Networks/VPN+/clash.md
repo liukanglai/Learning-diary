@@ -24,19 +24,32 @@
 
 更新订阅文件：$clashdir/start.sh getyaml
 
+# arch
 
-~/.config/clash
-/usr/lib/systemd/system/clash@.service:
+- pacman -S clash / or clash-premium-bin
+- run clash
+- ~/.config/clash: yaml
+
+- delete: /usr/lib/systemd/system/clash@.service and  /usr/lib/systemd/user/clash@.service
+
+- autostart:https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon
 
         [Unit]
-        Description=A rule based proxy in Go for %i.
+        Description=Clash daemon, A rule-based proxy in Go.
         After=network.target
-
+        
         [Service]
-        Type=exec
-        User=%i
-        Restart=on-abort
-        ExecStart=/usr/bin/clash
-
+        Type=simple
+        Restart=always
+        ExecStart=/usr/local/bin/clash -d /etc/clash // need change
+        
         [Install]
         WantedBy=multi-user.target
+
+- Launch clashd on system startup with:
+$ systemctl enable clash
+- Launch clashd immediately with:
+$ systemctl start clash
+- Check the health and logs of Clash with:
+$ systemctl status clash
+$ journalctl -xe
