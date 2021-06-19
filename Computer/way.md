@@ -145,6 +145,7 @@ Programming Windows (5th, 1998) by Charles Petzold
 Programming Applications for Microsoft Windows (1999) by Jeffrey Richter
 
 - ngnix
+- 深入理解Nginx by 陶辉 
 
 优秀的开源项目：SGI STL, muduo, libgo, libco 
  
