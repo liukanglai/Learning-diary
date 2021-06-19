@@ -2,15 +2,13 @@
 
 - sudo gunzip ***.gz
 - chmod +x clash***
-- ./clash -d
+- ./clash -d .
 
-- config.yml和config.yaml
-- 你需要把config.yml里面的内容复制到config.yaml里面，至于config.yml怎么来就看各位自个了
-其余步骤相信都不用多说。
+- wget (-P /opt/clash/) -O config.yaml [你的订阅链接]
+- config.yaml
 
 
 # shellclash
-
 
 - source ~/.bashrc &> /dev/null
 
@@ -53,3 +51,4 @@ $ systemctl start clash
 - Check the health and logs of Clash with:
 $ systemctl status clash
 $ journalctl -xe
+

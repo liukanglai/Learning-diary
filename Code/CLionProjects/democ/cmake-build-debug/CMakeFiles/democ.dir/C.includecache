@@ -6,8 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic1.c
+/home/liukanglai/Downloads/Learning-diary/Code/CLionProjects/democ/mosaic2.c
+stdarg.h
+-
 stdio.h
+-
+stdlib.h
 -
 math.h
 -

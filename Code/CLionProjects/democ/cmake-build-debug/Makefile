@@ -142,32 +142,32 @@ democ/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/build
 .PHONY : democ/fast
 
-main.o: main.c.o
+mosaic2.o: mosaic2.c.o
 
-.PHONY : main.o
+.PHONY : mosaic2.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/main.c.o
-.PHONY : main.c.o
+mosaic2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/mosaic2.c.o
+.PHONY : mosaic2.c.o
 
-main.i: main.c.i
+mosaic2.i: mosaic2.c.i
 
-.PHONY : main.i
+.PHONY : mosaic2.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/main.c.i
-.PHONY : main.c.i
+mosaic2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/mosaic2.c.i
+.PHONY : mosaic2.c.i
 
-main.s: main.c.s
+mosaic2.s: mosaic2.c.s
 
-.PHONY : main.s
+.PHONY : mosaic2.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/main.c.s
-.PHONY : main.c.s
+mosaic2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/democ.dir/build.make CMakeFiles/democ.dir/mosaic2.c.s
+.PHONY : mosaic2.c.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... democ"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... mosaic2.o"
+	@echo "... mosaic2.i"
+	@echo "... mosaic2.s"
 .PHONY : help
 
 
