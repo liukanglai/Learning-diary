@@ -5,7 +5,7 @@
 > command ! -nargs=* Ack :packadd ack.vim | Ack <f-args> (:Ack to use)
 > autcmd! filetype markdown packadd goyo.vim | Goyo (use in markdown)
 
-- in vimrc: packloadall " 加载   silent! helptags ALL “ 加载帮助文档，silent! 是为隐藏错误
+- in vimrc: packloadall "加载   silent! helptags ALL “加载帮助文档，silent! 是为隐藏错误
 - git clone ... ~/.vim/pack/plugins/start/file
 
 ## use git to manage plugins
@@ -32,7 +32,7 @@ delete
 - github  vim-plug
 - curl
 
-        `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
 
         	call plug#begin('~/.vim/plugged')
@@ -40,12 +40,12 @@ delete
         	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)
         
          " 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
-        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " when use :NERDTreeToggle, the plug will start 
-        Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+          Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " when use :NERDTreeToggle, the plug will start 
+          Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
         
-        " 确定插件仓库中的分支或者 tag
-        Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-        Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+          " 确定插件仓库中的分支或者 tag
+          Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+          Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
         
         	call plug#end()
 
@@ -65,61 +65,64 @@ delete
 
 - be same to vim-plug
 - use :PluginSearch ... !!!you can find plugins, then put the cursor on it, push i, will try it, but not installed it, you need use plug '' to install it.
-- 
 
 # Plug 
 
-Plug 'vim-airline/vim-airline'                                                   //
-Plug 'connorholyday/vim-snazzy'                                                //主题 
+" theme
+Plug 'vim-airline/vim-airline'
+Plug 'connorholyday/vim-snazzy'
 
 " File navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-"注释
-NERD Commenter
+" 注释
+" in <space>cc to comment a line
+Plug 'scrooloose/nerdcommenter' 
 
-"模糊查找文件
+" 模糊查找文件
 fzf
 
-"查找包含某特定行或单词的文件
+" 查找包含某特定行或单词的文件
 ack
 
 " 键映射
-- vim-unimpaired
+vim-unimpaired
 
 " Taglist
-tagliat 
-Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }                        //右显示函数列表
-vim-gutentags: vim-gutentags插件的基本工作原理可以这么理解：首先确定vim当前打开的文件是否需要自动生成tags标签，若需要则通过某种方式确定tag文件的路径，再基于tag标签文件完成函数跳转、结构体定义跳转等功能
+"右显示函数列表
+Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 
-- " gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
-- let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
-- 
-- " 所生成的数据文件的名称 "
-- let g:gutentags_ctags_tagfile = '.tags'
-- 
-- " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
-- let s:vim_tags = expand('~/.cache/tags')
-- let g:gutentags_cache_dir = s:vim_tags
-- " 检测 ~/.cache/tags 不存在就新建 "
-- if !isdirectory(s:vim_tags)
--    silent! call mkdir(s:vim_tags, 'p')
-- endif
-- 
-- " 配置 ctags 的参数 "
-- let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-- let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
-- let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+vim-gutentags: 
+- 工作原理：确定vim当前打开的文件是否需要自动生成tags标签，若需要则通过某种方式确定tag文件的路径，再基于tag标签文件完成函数跳转、结构体定义跳转等功能
+
+        " gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
+        let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+        
+        " 所生成的数据文件的名称 "
+        let g:gutentags_ctags_tagfile = '.tags'
+        
+        " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
+        let s:vim_tags = expand('~/.cache/tags')
+        let g:gutentags_cache_dir = s:vim_tags
+        " 检测 ~/.cache/tags 不存在就新建 "
+        if !isdirectory(s:vim_tags)
+           silent! call mkdir(s:vim_tags, 'p')
+        endif
+        
+        " 配置 ctags 的参数 "
+        let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+        let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+        let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 " Error checking
 Plug 'w0rp/ale'
 
 " Auto Complete
-Plug 'Valloric/YouCompleteMe'                                                  //language
+Plug 'Valloric/YouCompleteMe'
 
 " Undo Tree
-Plug 'mbbill/undotree/'                                                        //浏览文件修改历史 
+Plug 'mbbill/undotree/'
 
 “缩进指南
 Plug 'nathanaelkane/vim-indent-guides'
@@ -135,7 +138,6 @@ Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 
 " git (右行显示; ~已更改  +已添加  -已删除
 gitgutter
-
 
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 Plug 'elzr/vim-json'
@@ -155,17 +157,17 @@ vim-markdown
 " 表格
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
-- 格式
-"for your own format"
+" 格式
+" for your own format"
 Plug 'vimwiki/vimwiki'
 
 " Bookmarks
 Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
-
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/goyo.vim' " distraction free writing mode
+" distraction free writing mode
+Plug 'junegunn/goyo.vim' 
 
     " type ysks ' to wrap the word with '   ' or type cs'`   to change 'word' to `word`
 
@@ -175,7 +177,6 @@ Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
 Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
 
-Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
 
 " Dependencies
 
@@ -203,30 +204,28 @@ call plug#end()
 			                          \ 'cs,lua,javascript': ['re!\w{2}'],
 			                          \ }
 - 如果你和我一样想把它改成上面比较素雅的灰色的话，可以自己定义 highlight：https://jonasjacek.github.io/colors/(auto)
-highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
-highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
+        highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
+        highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
 - 我不喜欢 YCM 自动弹出函数原型预览窗口，它搞乱我的布局，我有其他方法查看函数的原型，如果你和我一样想关闭该功能的话，增加两行配置：
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-YCM默认会显示诊断信息，语言标注出来你代码问题，我一般不需要，要分析问题我有其他手段，我更喜欢我原型编译或者静态检查工具以后，你再给我标注出问题来，你如果也想屏蔽 YCM 的诊断信息，你可以设置：
-let g:ycm_show_diagnostics_ui = 0
-这样你可以用其他插件来完成自动/非自动代码静态检查。
+
+        set completeopt=menu,menuone
+        let g:ycm_add_preview_to_completeopt = 0
+
+- YCM默认会显示诊断信息，语言标注出来你代码问题, 屏蔽: 这样你可以用其他插件来完成自动/非自动代码静态检查
+
+        let g:ycm_show_diagnostics_ui = 0
 - 最后建议设置一下：g:ycm_filetype_whitelist 这个白名单，避免编辑白名单外的文件类型时 YCM也在那分析半天，比如你打开个 1MB 的 TXT 文件，YCM还要再那里空跑半天就傻了：
 
-let g:ycm_filetype_whitelist = { 
-			\ "c":1,
-			\ "cpp":1, 
-			\ "objc":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "zimbu":1,
-			\ }
-
-
-
-
+        let g:ycm_filetype_whitelist = { 
+        			\ "c":1,
+        			\ "cpp":1, 
+        			\ "objc":1,
+        			\ "sh":1,
+        			\ "zsh":1,
+        			\ "zimbu":1,
+        			\ }
 
 # termdebug
 
@@ -261,7 +260,6 @@ nnoremap <F9> :Break<CR>
 
 - 在 Vim 窗口中输入 :h terminal-debug 阅读详细的帮助文档。
 
-
 # neocomplete
 # deoplete.nvim / youcompleteme???
  pip install -U msgpack-python
@@ -276,30 +274,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-
-
-# c.vim
-
--install 
-
-cd /usr/src
-$ wget http://www.vim.org/scripts/download_script.php?src_id=9679
- mkdir ~/.vim
-$ cd ~/.vim
-$ unzip /usr/src/cvim.zip
-$ vim ~/.vimrc
-add : filetype plugin on
-
--  head
-
- vim ~/.vim/c-support/templates/Templates
- 
-|AUTHOR|    = geekstuff
-|AUTHORREF| = gk
-|EMAIL|     = subscribe@geekstuff
-|COMPANY|   = thegeekstuff.com
-
-
 
 
 # analysis

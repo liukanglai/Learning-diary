@@ -23,58 +23,35 @@ filetype plugin on
 "为特定文件类型载入相关缩进文件"
 filetype indent on
 
-"当文件在外部被修改时，自动更新该文件"
-set autoread
+- "当文件在外部被修改时，自动更新该文件" set autoread
 
-"激活鼠标的使用"
-set mouse=a
-set selection=exclusive
-set selectmode=mouse,key
+"激活鼠标的使用" set mouse=a / set selection=exclusive / set selectmode=mouse,key
 
-"保存全局变量"
-set viminfo+=!
+"保存全局变量" set viminfo+=!
 
-"带有如下符号的单词不要被换行分割"
-set iskeyword+=_,$,@,%,#,-
+"带有如下符号的单词不要被换行分割" set iskeyword+=_,$,@,%,#,-
 
-"通过使用: commands命令，告诉我们文件的哪一行被改变过"
-set report=0
+"通过使用: commands命令，告诉我们文件的哪一行被改变过" set report=0
 
-"被分割的窗口间显示空白，便于阅读"
-set fillchars=vert:\ ,stl:\ ,stlnc:\
-
-
+"被分割的窗口间显示空白，便于阅读" set fillchars=vert:\ ,stl:\ ,stlnc:\
 
 # 字体和颜色
 
-" 高亮多余的空白字符及 Tab
-highlight RedundantSpaces ctermbg=red guibg=red
-match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
+" 高亮多余的空白字符及 Tab:  highlight RedundantSpaces ctermbg=red guibg=red / match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
 
-"自动开启语法高亮"
-syntax enable
+"自动开启语法高亮" syntax enable
 
+"设置字体" set guifont=dejaVu\ Sans\ MONO\ 10 / set guifont=Courier_New:h10:cANSI
 
-"设置字体"
-"set guifont=dejaVu\ Sans\ MONO\ 10
-set guifont=Courier_New:h10:cANSI
+"设置颜色" "colorscheme desert
 
-"设置颜色"
-"colorscheme desert
+"高亮显示当前行" set cursorline / hi cursorline guibg=#00ff00 / hi CursorColumn guibg=#00ff00
 
-"高亮显示当前行"
-set cursorline
-hi cursorline guibg=#00ff00
-hi CursorColumn guibg=#00ff00
-
-"高亮显示普通txt文件（需要txt.vim脚本）"
-au BufRead,BufNewFile *  setfiletype txt
+"高亮显示普通txt文件（需要txt.vim脚本）" au BufRead,BufNewFile *  setfiletype txt
 
 # 代码折叠功能
 
-"激活折叠功能"
-set foldenable
-"set nofen（这个是关闭折叠功能）"
+"激活折叠功能" set foldenable  set nofen（这个是关闭折叠功能）"
 
 "设置按照语法方式折叠（可简写set fdm=XX）"
 "有6种折叠方法：
@@ -92,11 +69,9 @@ set foldmethod=manual
 "分别用“-”和“+”来表示打开和关闭的折叠
 set foldcolumn=0
 
-"设置折叠层数为3"
-setlocal foldlevel=3
+"设置折叠层数为3" setlocal foldlevel=3
 
-"设置为自动关闭折叠"
-set foldclose=all
+"设置为自动关闭折叠" set foldclose=all
 
 "用空格键来代替zo和zc快捷键实现开关折叠"
 "zo O-pen a fold (打开折叠)
@@ -104,20 +79,15 @@ set foldclose=all
 "zf F-old creation (创建折叠)
 "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-# """=>文字处理<="""
+# 文字处理
 
-"使用空格来替换Tab"
-set expandtab
+"使用空格来替换Tab" set expandtab
 
-"设置所有的Tab和缩进为4个空格"
-set tabstop=4
+"设置所有的Tab和缩进为4个空格" set tabstop=4
 
-"设定<<和>>命令移动时的宽度为4"
-set shiftwidth=4
+"设定<<和>>命令移动时的宽度为4" set shiftwidth=4
 
-"使得按退格键时可以一次删除4个空格"
-set softtabstop=4
-set smarttab
+"使得按退格键时可以一次删除4个空格" set softtabstop=4 / set smarttab
 
 "缩进，自动缩进（继承前一行的缩进）"
 "set autoindent 命令打开自动缩进，是下面配置的缩写
@@ -126,137 +96,92 @@ set smarttab
 set ai
 set cindent
 
-"智能缩进"
-set si
+"智能缩进" set si
 
-"自动换行”
-set wrap
+"自动换行” set wrap
 
-"设置软宽度"
-set sw=4
+"设置软宽度" set sw=4
 
-"行内替换"
-set gdefault
+"行内替换" set gdefault
 
-# """=>Vim 界面<="""
+# Vim 界面
 
-"增强模式中的命令行自动完成操作"
-set wildmenu
+"增强模式中的命令行自动完成操作" set wildmenu
 
-"显示标尺"
-set ruler
+"显示标尺" set ruler
 
-"设置命令行的高度"
-set cmdheight=1
+"设置命令行的高度" set cmdheight=1
 
-"显示行数"
-set nu
+"显示行数" set nu
 
-"不要图形按钮"
-set go=
+"不要图形按钮" set go=
 
-"在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能"
-set lz
+"在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能" set lz
 
-"使回格键（backspace）正常处理indent, eol, start等"
-set backspace=eol,start,indent
+"使回格键（backspace）正常处理indent, eol, start等" set backspace=eol,start,indent
 
-"允许空格键和光标键跨越行边界"
-set whichwrap+=<,>,h,l
+"允许空格键和光标键跨越行边界" set whichwrap+=<,>,h,l
 
-"设置魔术"
-set magic
+"设置魔术" set magic
 
-"关闭遇到错误时的声音提示"
-"关闭错误信息响铃"
-set noerrorbells
+"关闭遇到错误时的声音提示" "关闭错误信息响铃" set noerrorbells
 
-"关闭使用可视响铃代替呼叫"
-set novisualbell
+"关闭使用可视响铃代替呼叫" set novisualbell
 
-"高亮显示匹配的括号([{和}])"
-set showmatch
+"高亮显示匹配的括号([{和}])" set showmatch
 
-"匹配括号高亮的时间（单位是十分之一秒）"
-set mat=2
+"匹配括号高亮的时间（单位是十分之一秒）" set mat=2
 
-"光标移动到buffer的顶部和底部时保持3行距离"
-set scrolloff=3
+"光标移动到buffer的顶部和底部时保持3行距离" set scrolloff=3
 
-"搜索逐字符高亮"
-set hlsearch
-set incsearch
+"搜索逐字符高亮" set hlsearch set incsearch
 
-"搜索时不区分大小写"
-"还可以使用简写（“:set ic”和“:set noic”）"
-set ignorecase
+"搜索时不区分大小写" "还可以使用简写（“:set ic”和“:set noic”）" set ignorecase
 
-"用浅色高亮显示当前行"
-autocmd InsertLeave * se nocul
-autocmd InsertEnter * se cul
+"用浅色高亮显示当前行" autocmd InsertLeave * se nocul / autocmd InsertEnter * se cul
 
-"输入的命令显示出来，看的清楚"
-set showcmd
+"输入的命令显示出来，看的清楚" set showcmd
 
-#"""=>编码设置<="""
+# 编码设置
 
-"设置编码"
-set encoding=utf-8
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+"设置编码" set encoding=utf-8 / set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
-"设置文件编码"
-set fileencodings=utf-8
+"设置文件编码" set fileencodings=utf-8
 
-"设置终端编码"
-set termencoding=utf-8
+"设置终端编码" set termencoding=utf-8
 
-"设置语言编码"
-set langmenu=zh_CN.UTF-8
-set helplang=cn
+"设置语言编码" set langmenu=zh_CN.UTF-8 set helplang=cn
 
-# """=>其他设置<="""
+# 其他设置
 
 "开启新行时使用智能自动缩进"
 set smartindent
 set cin
 set showmatch
 
-"在处理未保存或只读文件的时候，弹出确认"
-set confirm
+"在处理未保存或只读文件的时候，弹出确认" set confirm
 
-"隐藏工具栏"
-set guioptions-=T
+"隐藏工具栏" set guioptions-=T
 
-"隐藏菜单栏"
-set guioptions-=m
+"隐藏菜单栏" set guioptions-=m
 
-"置空错误铃声的终端代码"
-set vb t_vb=
+"置空错误铃声的终端代码" set vb t_vb=
 
-"显示状态栏（默认值为1，表示无法显示状态栏）"
-set laststatus=2
+"显示状态栏（默认值为1，表示无法显示状态栏）" set laststatus=2
 
-"状态行显示的内容"
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+"状态行显示的内容" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
-"粘贴不换行问题的解决方法"
-set pastetoggle=<F9>
+"粘贴不换行问题的解决方法" set pastetoggle=<F9>
 
-"设置背景颜色"
-set background=dark
+"设置背景颜色" set background=dark
 
-"文件类型自动检测，代码智能补全"
-set completeopt=longest,preview,menu
+"文件类型自动检测，代码智能补全" set completeopt=longest,preview,menu
 
-"共享剪切板"
-set clipboard+=unnamed
+"共享剪切板" set clipboard+=unnamed
 
-"从不备份"
-set nobackup
-set noswapfile
+"从不备份" set nobackup / set noswapfile
 
-"自动保存"
-set autowrite
+"自动保存" set autowrite
 
 "显示中文帮助"
 if version >= 603

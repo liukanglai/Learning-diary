@@ -1,64 +1,69 @@
 # buffer
 
-- :ls look files(:buffers, :files)
-- :e file
-- :bn(next)/bp(previous)/bd(delete)    b 1(or b1)   b name(partly)
--
+- :ls look files(same as :buffers, :files)
+- :e file 
+> use set wildmenu ：会生成自动补全的菜单, use tab or shift+tab
+- :bn(next)/bp(previous)  b 1(or b1)   b name(partly, can use tab to complete)
+- :bd (only close a file)
+
+- vim-unimpaired
+
+        [b ]b 循环遍历缓冲区
+        [f ]f 循环遍历同一目录下文件，并生成缓冲区
+        [l ]l 遍历位置列表
+        [q ]q 遍历快速修复列表
+        [q ]q 遍历tag
+
+
+# Tab
+
+- :tabnew  web 使用 ：tabnew 创建一个名字叫 web 的 tab ,当然名字也可以没有，这样会创建一个没有名字的 tab
+- :tabc(close) 关闭当前的 tab
+- :tabn 切换到下一个 tab /gt /ngt /:tabmove N
+- :tabp 切换到上一个 tab /gT /ngT
+- :tabs 查看一共有几个 tab
+- :tabe  >+/-tabnext
+- tabmove N
 
 # split
 
 - :split(sp) file   vsplit(vs)
-- ctr+w+hjkl 光标
-- >:vertical resize+/-
-- 左右分屏如下操作： vim -On file1 file2 ... filen
-- 上下分屏如下操作： vim -on file1 file2 ... filen
-- Ctrl + w s 上面这个命令将会上下分割当前打开的文件。
-- Ctrl +w v 上面的这个命令将会左右分割当前的文件
+- ctr+w+hjkl 光标移动
+- Ctrl + w s/v 上下/分割当前打开的文件。
+- 左右分屏： vim -On file1 file2 ... filen
+- 上下分屏： vim -on file1 file2 ... filen
+
 - Ctrl + w c 关闭当前的分屏
 - Ctrl + w q 关闭当前的分屏，如果是最后一个分屏将会退出 VIM
 - Ctrl + w o 关闭所有其他
-- :wqa(w,q,all)
-
+- :wqa(w,q,all) 关闭所有并退出
 - 关闭缓冲区，而不关窗口，in vimrc: command! Bd :bp | :sp | :bn | :bd, then use :Bd
 
 # 窗口
 
 - :help window-moving, :help window-resize
 - c-w+HJKL: move the current window to ...
-- c-w+r,x...
+- change: c-w-r,x...
 - 编号算了。。。
 
-- c+w+=: all windows high and weigh same
-- :resize(res) +-N...   :vertical resize(vert res) +-N...
-- 
-
-# Tab
-
-- :tabnew  web 使用 ：tabnew 创建一个名字叫 web 的 tab ,当然名字也可以没有，这样会创建一个没有名字的 tab
-- :tabc(close) 关闭当前的 tab
-- :tabn 切换到下一个 tab /gt
-- :tabp 切换到上一个 tab /gT
-- :tabs 查看一共有几个 tab
-- gt 这个是一个快捷键在正常模式下按下键盘上的 g 和 t 就会自动切换 tab
-- 1gt 这是上一个命令的拓展，按下数字键（1，2，3，4……）和 gt ,将切换到相应顺序的 tab, tab 的序号默认从 1 开始，上面的命令将会切换到第一个 tab 。
-- :tabe  >+/-tabnext
-- tabmove N
-
+- c-w-=: all windows high and weigh same
+- c-w--,+,<,>
+- :resize(res) +,-N...   :vertical resize(vert res) +,-N...
 
 # fold
 
-- set foldmethod=indent(manual, expr（正则）, marker(文中的特殊标记如（{【), syntax, diff)
+- 设置折叠模式: set foldmethod=indent(manual, expr（正则）, marker(文中的特殊标记如（{【), syntax, diff)
+- autocmd BufRead * normal zR , will open all fold when open a file
 - zo: open fold
 - zc: close
 - za: open/close
 - zR: open all
 - zM: close all
-- 
 
 # filetree
 
-1. Netrw: use :Ex
-    - enter, -, D, R  :Vex(左右分割打开Netrw），:Sex, :Lex  :Ex(e) sftp://<domain>/<directory>/, :e scp://<domain>/<directory>/<file>
+1. (内置)Netrw: use :Ex
+    - enter, -(上一层目录), D(delete), R  :Vex(左右分割打开Netrw），:Sex, :Lex  :Ex(or :e) sftp://<domain>/<directory>/, :e scp://<domain>/<directory>/<file>
 2. set wildmenu(启动增强的tab自动补全)，set wildmode=list:longest,full(允许的最长字符串)
     - :e, then use tab, can open file(shift+tab, turn)
 3. NERDTree
@@ -85,3 +90,4 @@
 - set clipboard=unnamedplus  " 复制到+
 - set clipboard=unamed, unnamedplus  " 同时 
 
+# diff
