@@ -10,4 +10,3 @@
     逐条运行如下命令
     eval "$(ssh-agent -s)"
     ssh-add
-    

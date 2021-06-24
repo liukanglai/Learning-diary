@@ -9,7 +9,6 @@
     - gitk
     -
 
-
 2. 源代码
 
     - http://git-scm.com/ 下载 tar.bz2/...
@@ -19,7 +18,6 @@
             cd git-1.7.3.5/
             make prefix=/usr/local all
             sudo make prefix=/usr/local install
-
 
 3. clone
 
@@ -71,4 +69,3 @@
 
 [Git](http://www.worldhello.net/gotgit/01-meet-git/035-install-on-linux.html)
 
- 

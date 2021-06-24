@@ -23,4 +23,3 @@ git config --global --unset https.proxy
 针对docker容器的代理配置：
 
 在创建(run)容器的时候，加上 --net=host 这个选项，就可以实现容器内外共享网络，然后再在容器内部配置git，就可以实现容器内代理了
-
