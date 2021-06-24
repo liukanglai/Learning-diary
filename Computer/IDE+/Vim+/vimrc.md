@@ -3,25 +3,42 @@
 - " is comment 
 - :syntax on?
 
-
 # map
 
-- noremap <c-h> <c-w><c-h>
+- map递归映射（可自定义再定义），noremap非递归(系统默认)
+- <c-u>: Ctrl+u <a-u>/<m-u>: Alt+u <s-u>: Shift+u
+- <cr><enter>表示回车 <space> <esc> <tab> bs退格 
+- <up> <down> <left> <right>箭头 <pageup> <pagedown> 上下翻页
+- <f1>...
+- <home> <insert> <del> <end>
+- <nop> 无操作(强制消除)
+> :help index  :map g
+
+- nmap/nnoremap正常模式
+- vmap/vnoremap可视，选择模式
+- xmap/xnoremap可视模式
+- smap/snoremap选择模式
+- omap/onoremap操作待决模式
+- map!/noremap!插入和命令行模式
+- imap/inoremap插入模式
+- cmap/cnoremap命令行模式
+
+        inoremap " ""<esc>i
+
+## leader
+
+- default: \
+- let mapleader = " " or "\<space>" 定义在前
 
 # 全局配置
-
 
 - 关闭vi兼容模式 set nocompatible (nocp)
 - 设置历史记录步数: set history=1000
 
 "开启相关插件"
-
-"侦测文件类型"
-filetype on
-"载入文件类型插件"
-filetype plugin on
-"为特定文件类型载入相关缩进文件"
-filetype indent on
+"侦测文件类型" filetype on
+"载入文件类型插件" filetype plugin on
+"为特定文件类型载入相关缩进文件" filetype indent on
 
 - "当文件在外部被修改时，自动更新该文件" set autoread
 
@@ -192,9 +209,7 @@ endif
 "设置高亮相关项"
 highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
 
-""""""""""""""""""""""""""""""""
 """=>在shell脚本开头自动增加解释器以及作者等版权信息<="""
-""""""""""""""""""""""""""""""""
 "新建.py,.cc,.sh,.java文件，自动插入文件头"
 autocmd BufNewFile *.py,*.cc,*.sh,*.java exec ":call SetTitle()"
 "定义函数SetTitle，自动插入文件头"

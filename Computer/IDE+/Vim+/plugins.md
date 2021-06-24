@@ -39,7 +39,7 @@ delete
         
         	Plug ' ' (ps: vim-airline/vim-airline(此名从github栏中找)
         
-         " 延迟按需加载，使用到命令的时候再加载或者打开对应文件类型才加载
+         " 延迟按需加载，使用到命令的时候再加载on或者打开对应文件类型for才加载
           Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " when use :NERDTreeToggle, the plug will start 
           Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
         
@@ -60,6 +60,7 @@ delete
           autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
         endif
 
+- load: :w | source $MYVIMRC
 
 # Vundle
 
@@ -69,25 +70,17 @@ delete
 # Plug 
 
 " theme
-Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 
 " File navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" 注释
-" in <space>cc to comment a line
-Plug 'scrooloose/nerdcommenter' 
-
 " 模糊查找文件
 fzf
 
 " 查找包含某特定行或单词的文件
 ack
-
-" 键映射
-vim-unimpaired
 
 " Taglist
 "右显示函数列表
@@ -115,26 +108,9 @@ vim-gutentags:
         let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
         let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
-" Error checking
-Plug 'w0rp/ale'
-
-" Auto Complete
-Plug 'Valloric/YouCompleteMe'
-
-" Undo Tree
-Plug 'mbbill/undotree/'
 
 “缩进指南
 Plug 'nathanaelkane/vim-indent-guides'
-
-“相同字符串下划线
-Plug 'itchyny/vim-cursorword'
-
-" Git
-Plug 'rhysd/conflict-marker.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 
 " git (右行显示; ~已更改  +已添加  -已删除
 gitgutter
@@ -150,22 +126,16 @@ Plug 'mattn/emmet-vim'
 " Python
 Plug 'vim-scripts/indentpython.vim'
 
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
-vim-markdown
-
 " 表格
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
-" 格式
-" for your own format"
-Plug 'vimwiki/vimwiki'
 
 " Bookmarks
 Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
 Plug 'terryma/vim-multiple-cursors'
+
 " distraction free writing mode
 Plug 'junegunn/goyo.vim' 
 
@@ -186,15 +156,16 @@ Plug 'fadein/vim-FIGlet'
 
 call plug#end()
 
-
-
 # YouCompleteMe
-  >vim中输入:echo has('python') || has('python3')   - if return 1,show right
-  > 
-  > Install cmake python clang boost llvm-libs cmake
+  > vim中输入:echo has('python') || has('python3')   - if return 1,show right
   >
-  >>wget http://releases.llvm.org/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-  >cd .vim/plugged/YouCompleteMe
+  > vim --version | grep python(shoule be +, if -, than compile vim) 
+  >
+  > Install cmake python clang boost llvm-libs llvm
+  >
+  > Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+  >
+  > cd .vim/plugged/YouCompleteMe
   > 
   >sudo python3 install.py --clangd-completer (all)
 
@@ -225,40 +196,8 @@ call plug#end()
         			\ "sh":1,
         			\ "zsh":1,
         			\ "zimbu":1,
+        			\ "markdown":1,
         			\ }
-
-# termdebug
-
-默认情况下需手动加载 termdebug 插件：
-:packadd termdebug
-g++ -g helloworld.cpp -o helloworld
-现在，我们在 Vim 中启动 termdebug 来调试这个程序：
-
-:Termdebug helloworld
-我们可以通过 <Ctrl-W> 按键切换不同窗口。
-
-调试程序
-我们既可以在 GDB 窗口中调试，也可以在源码窗口中调试
-
-在源码窗口中的调试指令：
-
- :Run [args]        运行程序，可带参数 [args]，或沿用上一次运行的参数
- :Arguments {args}  设置下一次运行所用参数
-
- :Break     在当前行加断点
- :Clear     删除当前行的一个断点
-
- :Step      = gdb "step" 
- :Over      = gdb "next"
- :Finish    = gdb "finish"
- :Continue  = gdb "continue"
- :Stop      中断程序
- 
- 如果觉得手动输入调试指令太麻烦，可以在个人的 .vimrc 文件中自定义 keymap 来执行这些命令，如用 <F9> 来添加断点：
-
-nnoremap <F9> :Break<CR>
-
-- 在 Vim 窗口中输入 :h terminal-debug 阅读详细的帮助文档。
 
 # neocomplete
 # deoplete.nvim / youcompleteme???
@@ -283,5 +222,8 @@ let g:deoplete#enable_at_startup = 1
     - 第三列为启动时间。
 
 2. 特定行为的分析(ps: CtrlP)
-    - 从github下载python，vim仓库
-    - do :CtrlP
+    - :profile start profile.log
+    - :profile func *(CtrlP)
+    - :profile file *(CtrlP)
+    - open profile.log, G, *可搜索单词
+
