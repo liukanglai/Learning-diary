@@ -30,10 +30,9 @@ yay -Syu
  
 > 开头输入:
 
-- export XMODIFIERS="@im=fcitx"
-- export GTK_IM_MODULE="fcitx"
-- export QT_IM_MODULE="fcitx" 
-
+        export XMODIFIERS="@im=fcitx"
+        export GTK_IM_MODULE="fcitx"
+        export QT_IM_MODULE="fcitx" 
 
 
 ## 触控板 
@@ -47,7 +46,6 @@ yay -Syu
 
 - bluez bluez-utils  pulseaudio-bluetooth pavucontrol pulseaudio-alsa
 - bluedevil:kde
- 
 ``` 
 bluez软件包提供蓝牙协议栈
 bluez-utils软件包提供bluetoothctl工具
@@ -101,7 +99,6 @@ AutoEnable=true
 - flameshot  cheese  vlc  gwenview  gimp
 - okular
 
- 
 - yakuake  ranger
 - ark
 - woeusb
@@ -110,8 +107,6 @@ AutoEnable=true
 
 - qv2ray
 - electron-ssr
-
-```
 - openssh 远程连接工具
 - deepin-screenshot  Flameshot 现代、快捷、轻便的截图工具
 - SimpleScreenRecorder 轻量的录屏软件
@@ -136,16 +131,12 @@ AutoEnable=true
 - baidupcs-go-git 百度网盘下载工具
 - ncmdump-go 网易云音乐的 .ncm 格式转换工具
 - AppImageLauncher   .appimage文件的启动器 
-```
 
 ## 系统时间与Windows兼容
 
-```
 sudo pacman -S ntpdate
 sudo ntpdate time.windows.com
 sudo hwclock --localtime --systohc
-
-```
 
 ## 代理
 
@@ -162,19 +153,6 @@ sudo hwclock --localtime --systohc
 - yay -S oh-my-zsh-git
 - cp /usr/share/oh-my-zsh/zshrc ~/.zshrc
 
-把代理服务器地址写入shell配置文件.bashrc或者.zshrc 直接在.bashrc或者.zshrc添加下面内容
-export http_proxy="http://localhost:port"
-export https_proxy="http://localhost:port"
-
-或者走socket5协议（ss,ssr）的话，代理端口是1080
-export http_proxy="socks5://127.0.0.1:1080"
-export https_proxy="socks5://127.0.0.1:1080"
-
-或者干脆直接设置ALL_PROXY
-export ALL_PROXY=socks5://127.0.0.1:1080
-(more in Terminal)
-
-
 # pip
 
 ## vim
@@ -186,7 +164,7 @@ export ALL_PROXY=socks5://127.0.0.1:1080
 - 创建/更新 pkgfile 和 debtap 数据库。
 
 - sudo debtap -u ..
-- 转换deb包 debtap ***.deb
+- 转换deb包 debtap *.deb
 - 安装 sudo pacman -U <package-name>
 
 ## 美化
@@ -207,7 +185,6 @@ sudo pacman -S linux-headers
 sudo pacman -S virtualbox  选择 1 virtualbox-host-dkms
 sudo pacman -S virtualbox-guest-iso
 sudo /sbin/vboxconfig setup
-
 
 # java
 
