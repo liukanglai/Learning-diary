@@ -127,8 +127,17 @@ plug: vim-test
 "自动补全
 let g:ale_completion_enable = 1
 
+# arglist(argument list) 
+do a same operation in multiple files
 
+- :arg \*\*/\*.py (define files)
+- :argdo %s/hell/hello/ge | update
+- :args (to display files)
 
+- :set hidden (same with e)
+- :wa (save all)
+
+- :bufdo(argdo) (all buffer do)
 
 # debug
 - termdebug(plug)
