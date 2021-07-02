@@ -128,6 +128,7 @@ plug: vim-test
 let g:ale_completion_enable = 1
 
 # arglist(argument list) 
+
 do a same operation in multiple files
 
 - :arg \*\*/\*.py (define files)
@@ -138,6 +139,10 @@ do a same operation in multiple files
 - :wa (save all)
 
 - :bufdo(argdo) (all buffer do)
+
+# refactor
+- use regex to substitute, search, 宏...
+- google: vim refactoring plugins
 
 # debug
 - termdebug(plug)

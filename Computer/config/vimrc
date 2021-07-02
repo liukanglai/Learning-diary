@@ -1,27 +1,47 @@
-let mapleader=" "
+let mapleader=' '
 
 map <LEADER>0  $
 map <LEADER>f  <C-f>
 map <LEADER>b  <C-b>
 map <LEADER>w  <C-w>
+map <LEADER>t :tabnew 
+map <LEADER>e :Ex<CR> 
+map <LEADER>h :noh<CR> 
 noremap tn :NERDTree<CR>
-noremap tt :Tagbar<CR>
-noremap tr :source %<CR>
+"noremap tt :Tagbar<CR>
+noremap tt :LLPStartPreview<CR>
+"noremap tr :source %<CR>
+"noremap tc :w<CR>:so %<CR>
 noremap tm :MarkdownPreview<CR>
+noremap <leader>] :YcmCompleter GoTo<cr> " 函数跳转
 
+" config
+
+set ttimeoutlen=100
+filetype on
+filetype plugin on
+filetype indent on
+filetype plugin indent on 
+
+
+" UI
+
+set termguicolors " 真彩色
+set laststatus=2 " always show status bar
+set showcmd " last command
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} " status line
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" set undofile "持久性撤销
 set nu
 syntax on
 exec "nohlsearch"
-" 折叠
 set nofoldenable
 set foldmethod=indent " use indent to fold
-" open a file, open all fold.
-autocmd BUfRead * normal zR 
+"autocmd BUfRead * normal zR " open a file, open all fold.
 set smartcase
 set ci
 set sm
 " set relativenumber
-
 "光标不同显示
 let &t_ut=''
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -31,62 +51,49 @@ set expandtab " tab 展开为空格
 set tabstop=2
 set shiftwidth=4
 set softtabstop=2
-set laststatus=2
-
-" status line
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 set clipboard=unnamed
 set si
-set ttimeoutlen=100
-filetype on
-filetype plugin on
-filetype indent on
-filetype plugin indent on 
+
+" edit
+
+" move
+
+" search
+
 set autoread
 
-"通过使用: commands命令，告诉我们文件的哪一行被改变过"
-set report=0
+set report=0 "通过使用: commands命令，告诉我们文件的哪一行被改变过"
 
 "被分割的窗口间显示空白，便于阅读"
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 set smarttab
 set autoindent
 
-"自动换行”
-set wrap
+set spell " 拼写检查 (c-x, than s)
 
-"增强模式中的命令行自动完成操作"
-set wildmenu
+set wrap "自动换行”
 
-"显示标尺"
-set ruler
+set wildmenu "增强模式中的命令行自动完成操作"
 
-"使回格键（backspace）正常处理indent, eol, start等"
-set backspace=eol,start,indent
+set ruler "显示标尺"
 
-"允许空格键和光标键跨越行边界"
-"set whichwrap+=<,>,h,l
+set backspace=eol,start,indent "使回格键（backspace）正常处理indent, eol, start等"
 
-"高亮显示匹配的括号([{和}])"
-set showmatch
+"set whichwrap+=<,>,h,l  "允许空格键和光标键跨越行边界
 
-"光标移动到buffer的顶部和底部时保持3行距离"
-set scrolloff=5
+set showmatch "高亮显示匹配的括号([{和}])
+
+set scrolloff=5 "光标移动到buffer的顶部和底部时保持5行距离
 highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
 set hlsearch
 set incsearch
-"忽略大小写
-set ignorecase
+
+set ignorecase "忽略大小写
 set wildignorecase
 
 "用浅色高亮显示当前行"
-"竖
-set nocursorcolumn 
-"横
-set cursorline
+set nocursorcolumn "竖
+set cursorline "横
 autocmd InsertLeave * se cul
 autocmd InsertEnter * se nocul
 
@@ -98,22 +105,26 @@ autocmd InsertEnter * se nocul
 "ctermfg 设置终端vim的前景色
 "guibg 和 guifg 分别是设置gvim的背景色和前景色
 
-set showcmd
 "开启新行时使用智能自动缩进"
 set smartindent
 set cin
 set showmatch
+
+" tags父目录递归查找 ;表示持续查找
+"set tags=tags;
+" Regenerate tags when saving Python files.
+"autocmd BufWritePost *.py silent! !ctags -R &
+"autocmd BufWritePost *.c silent! !ctags -R &
+"autocmd BufWritePost *.cpp silent! !ctags -R &
+
 "文件类型自动检测，代码智能补全"
 set completeopt=longest,preview,menu
 
 set encoding=utf-8
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-"设置文件编码"
-set fileencodings=utf-8
-"设置终端编码"
-set termencoding=utf-8
-"设置语言编码"
-set langmenu=zh_CN.UTF-8
+set fileencodings=utf-8 "设置文件编码"
+set termencoding=utf-8 "设置终端编码"
+set langmenu=zh_CN.UTF-8 "设置语言编码"
 set helplang=cn
 "显示中文帮助"
 
@@ -177,12 +188,20 @@ func SetTitle()
 endfunc
 
 
+" install plug
+        if empty(glob('~/.vim/autoload/plug.vim'))
+          silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
 
 call plug#begin('~/.vim/plugged')
 
+" theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" use
 Plug 'morhetz/gruvbox'
 
 " ()color
@@ -192,9 +211,12 @@ Plug 'morhetz/gruvbox'
 " Plug 'mileszs/ack.vim'  
 " Plug 'ctrlpvim/ctrlp.vim'
 
+" comment
+" in <space>cc to comment a line
+Plug 'scrooloose/nerdcommenter' 
 
 " File navigation
-" Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 
 " Taglist
  Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }                    
@@ -208,7 +230,7 @@ Plug 'w0rp/ale'
 " Plug 'scrooloose/syntastic'
 
 " Auto Complete
-Plug 'Valloric/YouCompleteMe'                                                 
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 Plug 'raimondi/delimitmate'
 
 " snippets
@@ -216,6 +238,11 @@ Plug 'raimondi/delimitmate'
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+" 键映射
+" [f [b
+Plug 'tpope/vim-unimpaired'
+" <leader><leader>+
+Plug 'easymotion/vim-easymotion'
 
 " assignment promot
 " Plug 'Shougo/echodoc.vim'
@@ -224,11 +251,13 @@ Plug 'honza/vim-snippets'
 "Plug 'puremourning/vimspector'
 
 " Undo Tree 修改历史
-Plug 'mbbill/undotree/'                                                        
+"noremap <f5> :GundoToggle<cr>
+" Plug 'sjl/gundo.vim'
 
 " Other visual enhancement
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
+" 相同字符串下划线
 Plug 'itchyny/vim-cursorword'
 
 " highlight
@@ -247,8 +276,13 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }  
 " 格式
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
-"Plug 'vimwiki/vimwiki' 空格链接
+" 自定义
+"Plug 'vimwiki/vimwiki'
 
+
+" Latex
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
@@ -282,7 +316,9 @@ let g:rainbow_conf = {
 	\	}
 	\}
 
+"NERDTree
 "autocmd vimenter * NERDTree
+"let NERDTreeShowBookmarks = 1
 
 "let g:airline_theme='luna'
 
@@ -290,16 +326,16 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.dirty='⚡'
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
 
 "syntastic"
 
@@ -340,6 +376,7 @@ let g:ycm_filetype_whitelist = {
 			\ "sh":1,
 			\ "zsh":1,
 			\ "zimbu":1,
+      \ "markdown":1,
 			\ }
 
 "vimspector
@@ -367,3 +404,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" latex
+ let g:livepreview_engine = 'xelatex'

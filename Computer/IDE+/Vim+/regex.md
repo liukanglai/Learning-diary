@@ -7,10 +7,7 @@
 
 
 # 
-
-> :help ordinary-atom
-
-    . 任意字符，不包括行尾
+> :help ordinary-atom . 任意字符，不包括行尾
     ^ 行首
     $ 行尾
     \_ 任意字符，包含行尾
@@ -48,7 +45,7 @@
 
 - \w\+ : 一个或多个字符
 - a\{2,4} : 2~4个连续的a
-- 对于foo2bar2, 使用\w\+2将匹配foo2bar2，而\w\{-}2匹配foo2
+- 对于foo2bar2, 使用\w\+2将匹配foo2bar2，而\w\{-1,}2匹配foo2
 
 > :help multi
 
@@ -64,3 +61,28 @@
 
 3. very magic
 - 数字，字母，下划线以外都是特殊字符, add \v
+
+# use
+
+1. renanem
+- :argdo %s/\<[Ctrl+r,Ctrl+w\>/Pitbull/gec | update
+- c-r, c-w: 将光标下的单词插入当前命令中
+2. 函数的重排列
+
+        :argdo %s/\v<act>\((\w{-1,}),([^,]{-1,})\)/act(\2,\1)/gec | update
+
+# 宏录制
+
+- q键, 按一个a(随意寄存器), than do operation, 最后按下q键完成
+- do again: @a  (n@a)  @@最后的宏
+- :set nowrapscan "不回到开头，到达文件末尾即止
+- :reg 查看存储的宏(:echo @a) here: ^[ means esc, ^M means enter
+- "ap is same as @a, but only print the content(details), than can edit it, copy it to register a:
+
+        _"ay$
+
+- clear: qaq
+- recursion: 在a宏录制时使用@a（此时为空, 也可递归调用其他的寄存器），后面使用@a将会不停地递归调用
+
+- multifile: :argdo execute ":normal @a" | update
+

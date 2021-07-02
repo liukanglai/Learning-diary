@@ -38,3 +38,5 @@
 - git clone http
 - git pull : 下载更新 
 - git pull --rebase
+
+- git blame 查看历史(人)

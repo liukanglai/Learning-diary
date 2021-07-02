@@ -49,3 +49,8 @@
 - :help
 - :h cc
 - :h search(if don't know name, do c-d)
+
+# synchronize
+- ln -s ~/dotfiles/.vimrc .vim/.vimrc
+
+

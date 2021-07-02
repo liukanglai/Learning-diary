@@ -36,6 +36,7 @@
 - 光标返回： ctr+o(ctr+i反)   /‘’
 
 > ^M 是 Ctrl + v + m 打出来的（按下这三个键，VIM 会显示成 ^M ）,^M 代表快捷键是Ctrl + m ,
+
 # 编辑
 
 - 进入插入模式： i  a  I  A  s(删除字符后进入, ns) gi(上一次插入)
@@ -58,46 +59,6 @@
 - ~: 将光标下的字母改变大小写(n~)
 - g~\~: 改变当前行字母的大小写
 - gUU 将当前行的字母改成大写 gUw(词)  guu 小写 guw
-
-# 替换
-
-- substitute
-- s/zempty/handsome/g  (行zempty替换成 handsome) (no g, replace next)
-- :%s/zempty/handsome/g  (全文)
-- :n1,n2s/zempty/handsome/g   (n1 到 n2行)
-- $: last line, 
-- :12;$s/zempty/handsome/g (12行到最后一行)
-- :12;/dog/s/zempty/handsome/g (12行开始搜索到有dog的行, 其间替换)
-- 结合可视模式
-> :help cmdline-ranges
-
-- 只匹配s，no ss: /\\<s\\> to search
-
-- i 表示大小写不敏感查找，I 表示大小写敏感：
-- :%s/zempty/handsome/i  替换掉所有行第一个出现 zempty (不区分大小写) 为 handsome 。
-- :%s/zempty/handsome/gi  替换掉所有行出现 zempty (不区分大小写) 为 handsome 
-- c 表示需要确认，例如全局查找"zempty"替换为"handsome"并且需要确认： - :%s/zempty/handsome/gc
-- e表示不显示错误
-
-# 搜索: 
-
-- /(front): n(next) N(before)
-- ?(back)
-- set hlsearch set incsearch(未输入完就跳转)
-- :noh (no hlsearch)
-
-1. 跨文件
-- :grep // great tool
-- :vimgrep(:vim grep main *\*/*.py) then, :cn, :cp to move, :copen will open all
-2. ack 
-- sudo apt-get install ack-grep // linux use ack 
-- ack.vim
-- :ack --file what
-
-# 宏录制
-
-- q键, 按一个a（字母随意）,表示该宏注册为 a, than do operation, 最后按下q键完成
-- do again: @a  (n@a)
 
 # Mark
 
@@ -163,3 +124,39 @@
 - c-w+n: enter terminal-normal(i, a... will into work)
 - c-w+": 寄存器
 - c-w,c-c...
+
+# 替换
+
+- substitute
+- s/zempty/handsome/g  (行zempty替换成 handsome) (no g, replace next)
+- :%s/zempty/handsome/g  (全文)
+- :n1,n2s/zempty/handsome/g   (n1 到 n2行)
+- $: last line, 
+- :12;$s/zempty/handsome/g (12行到最后一行)
+- :12;/dog/s/zempty/handsome/g (12行开始搜索到有dog的行, 其间替换)
+- 结合可视模式
+> :help cmdline-ranges
+
+- 只匹配s，no ss: /\\<s\\> to search
+
+- i 表示大小写不敏感查找，I 表示大小写敏感：
+- :%s/zempty/handsome/i  替换掉所有行第一个出现 zempty (不区分大小写) 为 handsome 。
+- :%s/zempty/handsome/gi  替换掉所有行出现 zempty (不区分大小写) 为 handsome 
+- c 表示需要确认，例如全局查找"zempty"替换为"handsome"并且需要确认： - :%s/zempty/handsome/gc
+- e表示不显示错误
+
+# 搜索: 
+
+- /(front): n(next) N(before)
+- ?(back)
+- set hlsearch set incsearch(未输入完就跳转)
+- :noh (no hlsearch)
+
+1. 跨文件
+- :grep // great tool
+- :vimgrep(:vim grep main *\*/*.py) then, :cn, :cp to move, :copen will open all
+2. ack 
+- sudo apt-get install ack-grep // linux use ack 
+- ack.vim
+- :ack --file what
+
